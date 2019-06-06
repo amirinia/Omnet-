@@ -1,0 +1,295 @@
+file 43484 1559858415                                           
+version 2
+run General-0-20190606-17:59:18-16848
+attr configname General
+attr datetime 20190606-17:59:18
+attr experiment General
+attr inifile omnetpp9.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network SensorNetworkShowcaseA2
+attr processid 16848
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.wlan[*].typename "\"WirelessInterface\""
+param **.wlan[*].radio.typename "\"ApskScalarRadio\""
+param **.arp.typename "\"GlobalArp\""
+param *.gateway.forwarding true
+param *.configurator.addStaticRoutes false
+param *.configurator.config "xmldoc(\"config.xml\")"
+param **.radio.carrierFrequency 2.45GHz
+param **.radio.bandwidth 2.8MHz
+param **.radio.transmitter.bitrate "19200 bps"
+param **.radio.transmitter.headerLength 8b
+param **.radio.transmitter.preambleDuration 0.0001s
+param **.radio.transmitter.power 2.24mW
+param **.radio.receiver.energyDetection -90dBm
+param **.radio.receiver.sensitivity -100dBm
+param **.radio.receiver.snirThreshold -8dB
+param *.radioMedium.backgroundNoise.power -110dBm
+param **.mac.headerLength 8b
+param *.sensor*.numApps 1
+param *.sensor*.app[0].typename "\"UdpBasicApp\""
+param *.sensor*.app[0].destAddresses "\"server\""
+param *.sensor*.app[0].destPort 1000
+param *.sensor*.app[0].sendInterval 1s
+param *.sensor*.app[0].startTime exponential(1s)
+param *.sensor*.app[0].messageLength 10Byte
+param *.sensor*.numApps 2
+param *.sensor*.app[*].typename "\"UdpBasicApp\""
+param *.sensor*.app[*].destAddresses "\"CusterHead\""
+param *.sensor*.app[*].destPort 1000
+param *.sensor*.app[*].sendInterval 1s
+param *.sensor*.app[*].startTime uniform(0s,1s)
+param *.sensor*.app[*].messageLength 10Byte
+param *.sensor*.app[*].packetName "\"SensorData\""
+param *.visualizer.*.routingTableVisualizer.displayRoutingTables false
+param *.visualizer.*.routingTableVisualizer.displayRoutesIndividually false
+param *.visualizer.*.routingTableVisualizer.lineShift 0
+param *.visualizer.*.routingTableVisualizer.displayLabels false
+param *.visualizer.*.infoVisualizer.modules "\"*.server.app[0]\""
+param *.visualizer.*.infoVisualizer.format "\"%d\""
+param *.visualizer.*.networkRouteVisualizer.displayRoutes true
+param *.visualizer.*.physicalLinkVisualizer.displayLinks true
+param *.visualizer.*.numDataLinkVisualizers 2
+param *.visualizer.*.dataLinkVisualizer[*].displayLinks true
+param *.visualizer.*.dataLinkVisualizer[0].nodeFilter "\"sensor* or gateway\""
+param *.visualizer.*.dataLinkVisualizer[1].*Color "\"blue\""
+param *.visualizer.*.dataLinkVisualizer[1].nodeFilter "\"gateway* or server\""
+param *.visualizer.*.numStatisticVisualizers 2
+param *.visualizer.*.statisticVisualizer[*].zIndex 1
+param *.visualizer.*.statisticVisualizer[0].displayStatistics true
+param *.visualizer.*.statisticVisualizer[0].signalName "\"packetSent\""
+param *.visualizer.*.statisticVisualizer[0].statisticExpression "\"count\""
+param *.visualizer.*.statisticVisualizer[0].sourceFilter "\"**.gateway.udp **.sensor*.udp\""
+param *.visualizer.*.statisticVisualizer[0].format "\"sent: %v pks\""
+param *.visualizer.*.statisticVisualizer[1].displayStatistics true
+param *.visualizer.*.statisticVisualizer[1].signalName "\"packetReceived\""
+param *.visualizer.*.statisticVisualizer[1].statisticExpression "\"count\""
+param *.visualizer.*.statisticVisualizer[1].sourceFilter "\"**.gateway.udp **.sensor*.udp\""
+param *.visualizer.*.statisticVisualizer[1].format "\"rcvd: %v pks\""
+param **.wlan[*].mac.typename "\"LMac\""
+param **.mac.slotDuration 50ms
+param **.mac.numSlots 8
+param **.mac.reservedMobileSlots 0
+
+vector 0 SensorNetworkShowcaseA2.sensor4.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 1 SensorNetworkShowcaseA2.sensor1.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 2 SensorNetworkShowcaseA2.sensor2.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 3 SensorNetworkShowcaseA2.sensor3.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 4 SensorNetworkShowcaseA2.gateway.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 5 SensorNetworkShowcaseA2.sensor5.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 6 SensorNetworkShowcaseA2.sensor4.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 7 SensorNetworkShowcaseA2.sensor4.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 8 SensorNetworkShowcaseA2.sensor1.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 9 SensorNetworkShowcaseA2.sensor1.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 10 SensorNetworkShowcaseA2.sensor2.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 11 SensorNetworkShowcaseA2.sensor2.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 12 SensorNetworkShowcaseA2.sensor3.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 13 SensorNetworkShowcaseA2.sensor3.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 14 SensorNetworkShowcaseA2.gateway.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 15 SensorNetworkShowcaseA2.gateway.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 16 SensorNetworkShowcaseA2.sensor5.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 17 SensorNetworkShowcaseA2.sensor5.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 18 SensorNetworkShowcaseA2.sensor4.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 19 SensorNetworkShowcaseA2.sensor4.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 20 SensorNetworkShowcaseA2.sensor1.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 21 SensorNetworkShowcaseA2.sensor1.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 22 SensorNetworkShowcaseA2.sensor2.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 23 SensorNetworkShowcaseA2.sensor2.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 24 SensorNetworkShowcaseA2.sensor3.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 25 SensorNetworkShowcaseA2.sensor3.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 26 SensorNetworkShowcaseA2.gateway.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 27 SensorNetworkShowcaseA2.gateway.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 28 SensorNetworkShowcaseA2.sensor5.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 29 SensorNetworkShowcaseA2.sensor5.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 30 SensorNetworkShowcaseA2.gateway.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 31 SensorNetworkShowcaseA2.sensor5.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 32 SensorNetworkShowcaseA2.sensor3.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 33 SensorNetworkShowcaseA2.sensor3.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 34 SensorNetworkShowcaseA2.sensor4.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 35 SensorNetworkShowcaseA2.sensor1.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 36 SensorNetworkShowcaseA2.sensor2.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 37 SensorNetworkShowcaseA2.sensor3.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+0	11246 1598 0 211 0 0.078161962933 62 0 0.075 0.38511 0.02067500049
+1	12844 1586 0 209 0 0.078161960415 62 0 0.075 0.38511 0.02067500049
+2	14430 1527 0 212 0 0.078161983207 60 0 0.075 0.385108 0.020675000488
+3	15957 1603 0 207 0 0.078161959765 62 0 0.075 0.38511 0.02067500049
+4	17560 1676 0 203 0 0.078161882159 65 0 0.075 0.420101 0.023850000441
+5	19236 1600 0 205 0 0.078161955905 62 0 0.075 0.38511 0.02067500049
+6	20836 361 0 211 0 0.078161962933 17 0 3 24 44
+7	21197 1589 0 211 0 0.078161962933 61 0 0.075 0.38511 0.02067500049
+8	22786 359 0 209 0 0.078161960415 17 0 3 24 44
+9	23145 1577 0 209 0 0.078161960415 61 0 0.075 0.38511 0.02067500049
+10	24722 351 0 191 0 0.076666666664 16 0 3 23 43
+11	25073 1577 0 212 0 0.078161983207 59 0 0.075 0.385108 0.020675000488
+12	26650 380 0 207 0 0.078161959765 17 0 3 24 44
+13	27030 1655 0 207 0 0.078161959765 61 0 0.075 0.38511 0.02067500049
+14	28685 404 0 203 0 0.078161882159 18 0 3 27 53
+15	29089 1731 0 203 0 0.078161882159 64 0 0.075 0.420101 0.023850000441
+16	30820 379 0 205 0 0.078161955905 17 0 3 24 44
+17	31199 1652 0 205 0 0.078161955905 61 0 0.075 0.38511 0.02067500049
+18	32851 881 7 210 0.05 0.078161962933 21 -0.0005063174163406 0 -0.0051646949337665 1.7604549272552e-006
+19	33732 629 7 211 0.05 0.078161962933 26 0 3 31 67
+20	34361 877 8 208 0.05 0.078161960415 21 -0.0005063174160217 0 -0.0050634449346448 1.7160204289662e-006
+21	35238 625 8 209 0.05 0.078161960415 26 0 3 31 67
+22	35863 873 9 212 0.05 0.078161983207 21 -0.00050631741653134 0 -0.0049621949437651 1.6579160964207e-006
+23	36736 596 9 212 0.05 0.078161983207 25 0 3 31 67
+24	37332 881 10 206 0.05 0.078161959765 21 -0.00050631741641251 0 -0.0048609449434182 1.5861424476312e-006
+25	38213 630 10 207 0.05 0.078161959765 26 0 3 31 67
+26	38843 882 11 203 0.05 0.078161882159 21 -0.00054006741525224 0 -0.00540094492644 1.8436206183204e-006
+27	39725 582 11 195 0.05 0.076811882159 24 0 3 27 57
+28	40307 882 12 204 0.05 0.078161955905 21 -0.00050631741605283 0 -0.0052659449302035 1.7912167813339e-006
+29	41189 632 12 205 0.05 0.078161955905 26 0 3 31 67
+30	41821 196 13 203 0.050799961952 0.078161882159 8 0 2 8 12
+31	42017 96 50 63 0.057613407606 0.058963407606 4 0 2 4 6
+32	42113 25 58 58 0.058384669093 0.058384669093 1 10 10 10 100
+33	42138 25 60 60 0.058384669093 0.058384669093 1 18 18 18 324
+34	42163 98 93 101 0.064875994387 0.066225994387 4 0 2 4 6
+35	42261 96 118 127 0.06806013128 0.06941013128 4 0 2 4 6
+36	42357 100 144 152 0.070118393429 0.071468393429 4 0 2 4 6
+37	42457 100 169 177 0.073895660267 0.075245660267 4 0 2 4 6
+vector 38 SensorNetworkShowcaseA2.sensor4.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 39 SensorNetworkShowcaseA2.sensor1.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 40 SensorNetworkShowcaseA2.sensor2.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 41 SensorNetworkShowcaseA2.sensor3.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 42 SensorNetworkShowcaseA2.sensor5.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+38	43357 25 212 212 0.078161983207 0.078161983207 1 0 0 0 0
+39	43382 25 212 212 0.078161983207 0.078161983207 1 0 0 0 0
+40	43407 25 212 212 0.078161983207 0.078161983207 1 0 0 0 0
+41	43432 25 212 212 0.078161983207 0.078161983207 1 0 0 0 0
+42	43457 25 212 212 0.078161983207 0.078161983207 1 0 0 0 0
+

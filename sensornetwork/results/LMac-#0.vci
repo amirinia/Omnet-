@@ -1,0 +1,133 @@
+file 5453 1559844297                                            
+version 2
+run LMac-0-20190606-14:04:39-8456
+attr configname LMac
+attr datetime 20190606-14:04:39
+attr experiment LMac
+attr inifile omnetpp9.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network SensorNetworkShowcaseA2
+attr processid 8456
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.wlan[*].mac.typename "\"LMac\""
+param **.mac.slotDuration 50ms
+param **.mac.numSlots 8
+param **.mac.reservedMobileSlots 0
+param **.wlan[*].typename "\"WirelessInterface\""
+param **.wlan[*].radio.typename "\"ApskScalarRadio\""
+param **.arp.typename "\"GlobalArp\""
+param *.gateway.forwarding true
+param *.configurator.addStaticRoutes false
+param *.configurator.config "xmldoc(\"config.xml\")"
+param **.radio.carrierFrequency 2.45GHz
+param **.radio.bandwidth 2.8MHz
+param **.radio.transmitter.bitrate "19200 bps"
+param **.radio.transmitter.headerLength 8b
+param **.radio.transmitter.preambleDuration 0.0001s
+param **.radio.transmitter.power 2.24mW
+param **.radio.receiver.energyDetection -90dBm
+param **.radio.receiver.sensitivity -100dBm
+param **.radio.receiver.snirThreshold -8dB
+param *.radioMedium.backgroundNoise.power -110dBm
+param **.mac.headerLength 8b
+param *.sensor*.numApps 1
+param *.sensor*.app[0].typename "\"UdpBasicApp\""
+param *.sensor*.app[0].destAddresses "\"server\""
+param *.sensor*.app[0].destPort 1000
+param *.sensor*.app[0].sendInterval 1s
+param *.sensor*.app[0].startTime exponential(1s)
+param *.sensor*.app[0].messageLength 10Byte
+param *.server.numApps 1
+param *.server.app[0].typename "\"UdpSink\""
+param *.server.app[0].localPort 1000
+param *.visualizer.*.routingTableVisualizer.displayRoutingTables false
+param *.visualizer.*.routingTableVisualizer.displayRoutesIndividually false
+param *.visualizer.*.routingTableVisualizer.lineShift 0
+param *.visualizer.*.routingTableVisualizer.displayLabels false
+param *.visualizer.*.infoVisualizer.modules "\"*.server.app[0]\""
+param *.visualizer.*.infoVisualizer.format "\"%d\""
+param *.visualizer.*.networkRouteVisualizer.displayRoutes true
+param *.visualizer.*.physicalLinkVisualizer.displayLinks true
+
+vector 0 SensorNetworkShowcaseA2.sensor4.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 1 SensorNetworkShowcaseA2.sensor1.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 2 SensorNetworkShowcaseA2.sensor2.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 3 SensorNetworkShowcaseA2.sensor3.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 4 SensorNetworkShowcaseA2.gateway.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 5 SensorNetworkShowcaseA2.sensor4.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 6 SensorNetworkShowcaseA2.sensor4.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 7 SensorNetworkShowcaseA2.sensor1.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 8 SensorNetworkShowcaseA2.sensor1.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 9 SensorNetworkShowcaseA2.sensor2.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 10 SensorNetworkShowcaseA2.sensor2.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 11 SensorNetworkShowcaseA2.sensor3.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 12 SensorNetworkShowcaseA2.sensor3.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 13 SensorNetworkShowcaseA2.gateway.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 14 SensorNetworkShowcaseA2.gateway.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+0	5126 27 0 0 0 0 3 0 0 0 0
+1	5153 27 0 0 0 0 3 0 0 0 0
+2	5180 27 0 0 0 0 3 0 0 0 0
+3	5207 27 0 0 0 0 3 0 0 0 0
+4	5234 27 0 0 0 0 3 0 0 0 0
+5	5261 18 0 0 0 0 2 0 0 0 0
+6	5279 18 0 0 0 0 2 0 0 0 0
+7	5297 18 0 0 0 0 2 0 0 0 0
+8	5315 18 0 0 0 0 2 0 0 0 0
+9	5333 18 0 0 0 0 2 0 0 0 0
+10	5351 20 0 0 0 0 2 0 0 0 0
+11	5371 20 0 0 0 0 2 0 0 0 0
+12	5391 20 0 0 0 0 2 0 0 0 0
+13	5411 20 0 0 0 0 2 0 0 0 0
+14	5431 20 0 0 0 0 2 0 0 0 0
+
