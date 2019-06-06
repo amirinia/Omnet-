@@ -1,0 +1,434 @@
+file 202541 1559850537                                          
+version 2
+run General-0-20190606-15:35:05-13096
+attr configname General
+attr datetime 20190606-15:35:05
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Ieee802154Showcasem
+attr processid 13096
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.arp.typename "\"GlobalArp\""
+param **.netmaskRoutes "\"\""
+param *.radioMedium.backgroundNoise.power -110dBm
+param *.configurator.config "xmldoc(\"startopology.xml\")"
+param *.configurator.addStaticRoutes false
+param *.sensor*.numApps 1
+param *.sensor*.app[*].typename "\"UdpBasicApp\""
+param *.sensor*.app[*].destAddresses "\"CusterHead\""
+param *.sensor*.app[*].destPort 1000
+param *.sensor*.app[*].sendInterval 1s
+param *.sensor*.app[*].startTime uniform(0s,1s)
+param *.sensor*.app[*].messageLength 10Byte
+param *.sensor*.app[*].packetName "\"SensorData\""
+param *.CusterHead.app[1].typename "\"UdpSink\""
+param *.CusterHead.app[1].localPort 1000
+param *.visualizer.*.routingTableVisualizer[0].displayRoutingTables false
+param *.visualizer.*.routingTableVisualizer[0].displayRoutesIndividually false
+param *.visualizer.*.routingTableVisualizer[0].lineShift 0
+param *.visualizer.*.routingTableVisualizer[0].displayLabels true
+param *.visualizer.*.interfaceTableVisualizer[0].displayInterfaceTables false
+param *.visualizer.*.numDataLinkVisualizers 2
+param *.visualizer.*.dataLinkVisualizer[*].displayLinks true
+param *.visualizer.*.dataLinkVisualizer[0].nodeFilter "\"sensor* or CusterHead\""
+param *.visualizer.*.dataLinkVisualizer[1].*Color "\"blue\""
+param *.visualizer.*.dataLinkVisualizer[1].nodeFilter "\"drone* or CusterHead\""
+param *.visualizer.*.numStatisticVisualizers 2
+param *.visualizer.*.statisticVisualizer[*].zIndex 1
+param *.visualizer.*.statisticVisualizer[0].displayStatistics true
+param *.visualizer.*.statisticVisualizer[0].signalName "\"packetSent\""
+param *.visualizer.*.statisticVisualizer[0].statisticExpression "\"count\""
+param *.visualizer.*.statisticVisualizer[0].sourceFilter "\"**.CusterHead.udp **.sensor*.udp\""
+param *.visualizer.*.statisticVisualizer[0].format "\"sent: %v pks\""
+param *.visualizer.*.statisticVisualizer[1].displayStatistics true
+param *.visualizer.*.statisticVisualizer[1].signalName "\"packetReceived\""
+param *.visualizer.*.statisticVisualizer[1].statisticExpression "\"count\""
+param *.visualizer.*.statisticVisualizer[1].sourceFilter "\"**.CusterHead.udp **.lamp*.udp\""
+param *.visualizer.*.statisticVisualizer[1].format "\"rcvd: %v pks\""
+
+vector 0 Ieee802154Showcasem.sensor1.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 1 Ieee802154Showcasem.sensor2.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 2 Ieee802154Showcasem.sensor3.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 3 Ieee802154Showcasem.sensor4.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 4 Ieee802154Showcasem.CusterHead.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 5 Ieee802154Showcasem.sensorNode.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 6 Ieee802154Showcasem.sensor1.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 7 Ieee802154Showcasem.sensor1.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 8 Ieee802154Showcasem.sensor2.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 9 Ieee802154Showcasem.sensor2.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 10 Ieee802154Showcasem.sensor3.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 11 Ieee802154Showcasem.sensor3.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 12 Ieee802154Showcasem.sensor4.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 13 Ieee802154Showcasem.sensor4.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 14 Ieee802154Showcasem.CusterHead.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 15 Ieee802154Showcasem.CusterHead.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 16 Ieee802154Showcasem.sensorNode.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 17 Ieee802154Showcasem.sensorNode.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 18 Ieee802154Showcasem.sensor1.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 19 Ieee802154Showcasem.sensor2.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 20 Ieee802154Showcasem.sensor3.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 21 Ieee802154Showcasem.sensor4.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 22 Ieee802154Showcasem.CusterHead.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 23 Ieee802154Showcasem.sensorNode.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 24 Ieee802154Showcasem.sensor4.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 25 Ieee802154Showcasem.sensor4.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 26 Ieee802154Showcasem.sensor4.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 27 Ieee802154Showcasem.sensor4.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 28 Ieee802154Showcasem.sensor3.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 29 Ieee802154Showcasem.sensorNode.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 30 Ieee802154Showcasem.CusterHead.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 31 Ieee802154Showcasem.sensor1.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 32 Ieee802154Showcasem.sensor2.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 33 Ieee802154Showcasem.sensor3.wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 34 Ieee802154Showcasem.sensorNode.wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 35 Ieee802154Showcasem.CusterHead.wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 36 Ieee802154Showcasem.sensor1.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 37 Ieee802154Showcasem.sensor1.ipv4.ip packetDropForwardingDisabled:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, vector(packetBytes)"
+vector 38 Ieee802154Showcasem.sensor2.wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 39 Ieee802154Showcasem.sensor3.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 40 Ieee802154Showcasem.sensor3.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 41 Ieee802154Showcasem.sensor3.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 42 Ieee802154Showcasem.sensor4.wlan[0].mac packetDropNotAddressToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 43 Ieee802154Showcasem.sensorNode.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 44 Ieee802154Showcasem.sensorNode.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 45 Ieee802154Showcasem.sensorNode.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 46 Ieee802154Showcasem.sensor1.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 47 Ieee802154Showcasem.sensor1.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 48 Ieee802154Showcasem.sensor2.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 49 Ieee802154Showcasem.sensor2.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 50 Ieee802154Showcasem.sensor2.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 51 Ieee802154Showcasem.sensor1.wlan[0].mac packetDropRetryLimitReached:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, vector(packetBytes)"
+0	13179 5898 0 611 0 2.386941929493 225 0 0.075 2.030375 0.127150001875
+1	19077 3394 0 616 0 2.386942060083 129 0 0.075 1.470295 0.076350001475
+2	22471 3544 0 620 0 2.386942150763 135 0 0.075 1.5053 0.0795250015
+3	26015 3549 0 618 0 2.386942142869 135 0 0.075 1.5053 0.0795250015
+4	29564 3064 0 614 0 2.386942051779 117 0 0.05 1.400285 0.070000001425
+5	32628 3397 0 612 0 2.386942017554 129 0 0.075 1.470295 0.076350001475
+6	36025 883 0 611 0 2.386941929493 39 0 3 92 238
+7	36908 5889 0 611 0 2.386941929493 224 0 0.075 2.030375 0.127150001875
+8	42797 123 0 440 0 1.850227737257 7 0 3 12 30
+9	42920 3385 0 616 0 2.386942060083 128 0 0.075 1.470295 0.076350001475
+10	46305 178 0 592 0 2.386397708223 9 0 3 17 43
+11	46483 3669 0 620 0 2.386942150763 134 0 0.075 1.5053 0.0795250015
+12	50152 177 0 548 0 2.059048975726 9 0 3 17 43
+13	50329 3674 0 618 0 2.386942142869 134 0 0.075 1.5053 0.0795250015
+14	54003 30 0 0 0 0 3 0 2 2 4
+15	54033 3171 0 614 0 2.386942051779 116 0 0.05 1.400285 0.070000001425
+16	57204 129 0 372 0 1.531230921532 7 0 3 12 30
+17	57333 3516 0 612 0 2.386942017554 128 0 0.075 1.470295 0.076350001475
+18	60849 1398 0 611 0 2.386941929493 57 0 3 59 119
+19	62247 1398 0 616 0 2.386942060083 57 0 3 107 263
+20	63645 1397 0 620 0 2.386942150763 57 0 3 104 254
+21	65042 1401 0 618 0 2.386942142869 57 0 3 104 254
+22	66443 1391 0 614 0 2.386942051779 57 1 3 113 281
+23	67834 1401 0 612 0 2.386942017554 57 0 3 107 263
+24	69235 76 1 536 0.056712975726 2.056712975726 3 10 10 30 300
+25	69311 76 3 537 0.056712975726 2.056712975726 3 18 18 54 972
+26	69387 2554 7 618 0.056840975726 2.386942142869 59 -0.0018442415907143 -2.8420487863e-007 -0.054305752495028 6.7483158668612e-005
+27	71941 294 7 548 0.056840975726 2.059048975726 12 0 2 12 18
+28	72235 2550 9 620 0.057033077464 2.386942150763 59 -0.0018442415907538 -2.8516538732e-007 -0.054097539527008 6.7063776914969e-005
+29	74785 2517 10 612 0.057033102945 2.386942017554 58 -0.0018008825500878 -2.85165514725e-007 -0.052127371848554 6.350468921058e-005
+30	77302 2408 11 614 0.05703310376 2.386942051779 56 -0.0017141644702589 -2.851655188e-007 -0.047878377944316 5.5446520237188e-005
+31	79710 2761 12 611 0.057033189102 2.386941929493 64 -0.0021586271896475 -2.8516594551e-007 -0.068120691422642 9.8650718919496e-005
+32	82471 2509 13 616 0.057033207452 2.386942060083 58 -0.0018008825503004 -2.8516603726e-007 -0.051984604708093 6.3250419154106e-005
+33	84980 561 16 577 0.058729077464 2.059593410372 22 5 47 740 33310
+34	85541 612 18 613 0.058729102945 2.386942017554 24 5 47 792 35544
+35	86153 709 20 615 0.05872910376 2.386942051779 28 5 47 896 40012
+36	86862 1784 22 611 0.058729189102 2.386941929493 72 0 2 72 108
+37	88646 258 23 603 0.058729189102 2.386397929493 10 38 38 380 14440
+38	88904 610 25 617 0.058729207452 2.386942060083 24 5 47 792 35544
+39	89514 77 46 580 0.384381708223 2.384381708223 3 10 10 30 300
+40	89591 77 48 581 0.384381708223 2.384381708223 3 18 18 54 972
+41	89668 296 52 592 0.386109708223 2.386397708223 12 0 2 12 18
+42	89964 563 63 619 0.387997809961 2.386942142869 22 5 47 740 33310
+43	90527 51 91 360 0.528894921532 1.528894921532 2 10 10 20 200
+44	90578 51 93 361 0.528894921532 1.528894921532 2 18 18 36 648
+45	90629 198 97 372 0.530622921532 1.531230921532 8 0 2 8 12
+46	90827 50 136 404 0.84426574409 1.84426574409 2 10 10 20 200
+47	90877 50 138 405 0.84426574409 1.84426574409 2 18 18 36 648
+48	90927 52 161 416 0.847251737257 1.847251737257 2 10 10 20 200
+49	90979 52 163 417 0.847251737257 1.847251737257 2 18 18 36 648
+50	91031 200 167 440 0.847379737257 1.850227737257 8 0 2 8 12
+51	91231 52 268 532 0.863299867847 1.861059867847 2 47 47 94 4418
+0	91283 870 632 721 2.529855009593 2.851379867847 33 0 0.075 0.35005 0.02200000025
+1	92153 641 634 724 2.529855079039 2.851379998437 24 0 0.075 0.285045 0.015675000225
+2	92794 483 635 726 2.529855080452 2.851380089117 18 0 0.05 0.25004 0.0125000002
+3	93277 487 633 725 2.529855048751 2.851380081223 18 0 0.05 0.25004 0.0125000002
+4	93764 483 631 723 2.529855002664 2.851379990133 18 0 0.05 0.25004 0.0125000002
+5	94247 645 629 722 2.529662921532 2.851379955908 24 0 0.075 0.285045 0.015675000225
+6	94892 118 640 712 2.531551009593 2.851187867847 5 2 3 13 35
+7	95010 870 632 721 2.529855009593 2.851379867847 33 0 0.075 0.35005 0.02200000025
+8	95880 48 697 708 2.849299737257 2.851187737257 2 2 3 5 13
+9	95928 641 634 724 2.529855079039 2.851379998437 24 0 0.075 0.285045 0.015675000225
+11	96569 501 635 726 2.529855080452 2.851380089117 18 0 0.05 0.25004 0.0125000002
+13	97070 505 633 725 2.529855048751 2.851380081223 18 0 0.05 0.25004 0.0125000002
+15	97575 501 631 723 2.529855002664 2.851379990133 18 0 0.05 0.25004 0.0125000002
+16	98076 50 629 636 2.529662921532 2.531550921532 2 2 3 5 13
+17	98126 669 629 722 2.529662921532 2.851379955908 24 0 0.075 0.285045 0.015675000225
+18	98795 223 632 712 2.529855009593 2.851187867847 9 0 3 10 22
+19	99018 223 634 724 2.529855079039 2.851379998437 9 0 3 16 40
+20	99241 223 635 726 2.529855080452 2.851380089117 9 1 3 19 49
+21	99464 225 633 725 2.529855048751 2.851380081223 9 1 3 19 49
+22	99689 223 631 723 2.529855002664 2.851379990133 9 1 3 19 49
+23	99912 225 629 722 2.529662921532 2.851379955908 9 0 3 16 40
+26	100137 387 633 725 2.529855048751 2.851380081223 9 -0.0021185365804061 -0.0018449561552438 -0.017905295902388 3.5690847274252e-005
+28	100524 385 635 726 2.529855080452 2.851380089117 9 -0.0021185365804456 -0.0018449561554023 -0.017905295902371 3.5690847274031e-005
+29	100909 430 629 722 2.529662921532 2.851379955908 10 -0.0021185365797795 -0.0018015961546077 -0.019664492051848 3.878194143625e-005
+30	101339 385 631 723 2.529855002664 2.851379990133 9 -0.0019884594599507 -0.0017148790350133 -0.016734601818373 3.1184989126035e-005
+31	101724 423 632 721 2.529855009593 2.851379867847 10 -0.0024869992993392 -0.002159341755048 -0.023242708264371 5.4134665232128e-005
+32	102147 428 634 724 2.529855079039 2.851379998437 10 -0.0021185365799922 -0.0018015971153952 -0.01959311727699 3.8484138910445e-005
+33	102575 102 647 717 2.531551080452 2.851187915881 4 5 47 146 6652
+34	102677 52 686 715 2.848521832151 2.851187894764 2 47 47 94 4418
+35	102729 102 638 710 2.531551002664 2.85118784136 4 5 47 146 6652
+36	102831 246 640 721 2.531551009593 2.851379867847 10 0 2 11 17
+37	103077 52 641 713 2.531551009593 2.851187867847 2 38 38 76 2888
+38	103129 76 645 690 2.531551079039 2.84852187468 3 5 47 99 4443
+42	103205 103 643 719 2.531551048751 2.851187968983 4 5 47 146 6652
+43	103308 26 624 624 2.528894921532 2.528894921532 1 10 10 10 100
+44	103334 26 625 625 2.528894921532 2.528894921532 1 18 18 18 324
+45	103360 100 629 636 2.529662921532 2.531550921532 4 0 2 4 6
+46	103460 25 668 668 2.84426574409 2.84426574409 1 10 10 10 100
+47	103485 25 669 669 2.84426574409 2.84426574409 1 18 18 18 324
+48	103510 26 680 680 2.847251737257 2.847251737257 1 10 10 10 100
+49	103536 26 681 681 2.847251737257 2.847251737257 1 18 18 18 324
+50	103562 100 697 708 2.849299737257 2.851187737257 4 0 2 4 6
+0	103662 7360 727 1455 2.851731867847 5.532415009593 269 0 0.075 2.425455 0.152375002275
+1	111022 3993 732 1452 2.851731998437 5.532063140183 144 0 0.075 1.72034 0.0888500017
+2	115015 4159 736 1454 2.851732089117 5.532063230863 150 0 0.075 1.755345 0.092025001725
+3	119174 4167 734 1453 2.851732081223 5.532063222969 150 0 0.075 1.755345 0.092025001725
+4	123341 3659 730 1451 2.851731990133 5.532063131879 132 0 0.05 1.65033 0.08250000165
+5	127000 4165 728 1450 2.851731955908 5.532063097654 150 0 0.075 1.755345 0.092025001725
+6	131165 1104 727 1455 2.851731867847 5.532415009593 45 2 3 112 290
+7	132269 7360 727 1455 2.851731867847 5.532415009593 269 0 0.075 2.425455 0.152375002275
+8	139629 98 965 1240 3.847699737257 4.851187737257 4 2 3 10 26
+9	139727 3993 732 1452 2.851731998437 5.532063140183 144 0 0.075 1.72034 0.0888500017
+10	143720 154 853 1392 3.386109708223 5.387037708223 6 2 3 15 39
+11	143874 4309 736 1454 2.851732089117 5.532063230863 150 0 0.075 1.755345 0.092025001725
+12	148183 154 809 1348 3.058120975726 5.060008975726 6 2 3 15 39
+13	148337 4317 734 1453 2.851732081223 5.532063222969 150 0 0.075 1.755345 0.092025001725
+15	152654 3791 730 1451 2.851731990133 5.532063131879 132 0 0.05 1.65033 0.08250000165
+16	156445 154 897 1436 3.529022921532 5.531870921532 6 2 3 15 39
+17	156599 4315 728 1450 2.851731955908 5.532063097654 150 0 0.075 1.755345 0.092025001725
+18	160914 1713 727 1455 2.851731867847 5.532415009593 67 0 3 67 133
+19	162627 1687 732 1452 2.851731998437 5.532063140183 66 0 3 126 312
+20	164314 1688 736 1454 2.851732089117 5.532063230863 66 0 3 123 303
+21	166002 1692 734 1453 2.851732081223 5.532063222969 66 0 3 123 303
+22	167694 1681 730 1451 2.851731990133 5.532063131879 66 1 3 132 330
+23	169375 1691 728 1450 2.851731955908 5.532063097654 66 0 3 123 303
+24	171066 80 804 1336 3.056712975726 5.056712975726 3 10 10 30 300
+25	171146 80 805 1337 3.056712975726 5.056712975726 3 18 18 54 972
+26	171226 3011 734 1453 2.851732081223 5.532063222969 69 -0.0043210111961148 -0.0021361365804061 -0.22398447894447 0.00075519674995465
+27	174237 308 809 1348 3.058120975726 5.060008975726 12 0 2 12 18
+28	174545 3007 736 1454 2.851732089117 5.532063230863 69 -0.0043210111961543 -0.0021361365804456 -0.22377625317709 0.00075378151132171
+29	177552 3010 728 1450 2.851731955908 5.532063097654 69 -0.0043210111954883 -0.0021361365797795 -0.22356527844632 0.00075230453414134
+30	180562 2869 730 1451 2.851731990133 5.532063131879 66 -0.0040608569556594 -0.0020060594599507 -0.20140801286966 0.00063845336028829
+31	183431 3385 727 1455 2.851731867847 5.532415009593 78 -0.005170095675048 -0.0025133992993392 -0.30082045391623 0.001207810102892
+32	186816 2962 732 1452 2.851731998437 5.532063140183 68 -0.0042776521557009 -0.0021361365799922 -0.21914199515453 0.00073303384716035
+33	189778 709 737 1447 2.851732089117 5.531871080452 27 5 47 933 42171
+34	190487 736 729 1413 2.851731955908 5.387582017554 28 5 47 938 42196
+35	191223 862 731 1438 2.851731990133 5.531871002664 33 5 47 1089 48873
+36	192085 2298 727 1455 2.851731867847 5.532415009593 90 0 2 89 133
+37	194383 293 825 1441 3.060009189102 5.531871009593 11 38 38 418 15884
+38	194676 736 755 1445 2.862707998437 5.531871079039 28 5 47 980 44380
+39	195412 80 848 1380 3.384381708223 5.384381708223 3 10 10 30 300
+40	195492 80 849 1381 3.384381708223 5.384381708223 3 18 18 54 972
+41	195572 308 853 1392 3.386109708223 5.387037708223 12 0 2 12 18
+42	195880 711 735 1443 2.851732081223 5.531871048751 27 5 47 933 42171
+43	196591 80 892 1424 3.528894921532 5.528894921532 3 10 10 30 300
+44	196671 80 893 1425 3.528894921532 5.528894921532 3 18 18 54 972
+45	196751 308 897 1436 3.529022921532 5.531870921532 12 0 2 12 18
+46	197059 51 936 1202 3.84426574409 4.84426574409 2 10 10 20 200
+47	197110 51 937 1203 3.84426574409 4.84426574409 2 18 18 36 648
+48	197161 53 960 1214 3.847251737257 4.847251737257 2 10 10 20 200
+49	197214 53 961 1215 3.847251737257 4.847251737257 2 18 18 36 648
+50	197267 204 965 1240 3.847699737257 4.851187737257 8 0 2 8 12
+51	197471 80 800 1332 2.869059867847 4.862339867847 3 47 47 141 6627
+vector 52 Ieee802154Showcasem.sensor1.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 53 Ieee802154Showcasem.sensor2.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 54 Ieee802154Showcasem.sensor3.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 55 Ieee802154Showcasem.sensor4.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 56 Ieee802154Showcasem.sensorNode.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+52	198334 841 1455 1455 0.1 5.532415065699 56 0 0 0 0
+53	199175 841 1455 1455 0.1 5.532415065699 56 0 0 0 0
+54	200016 841 1455 1455 0.1 5.532415065699 56 0 0 0 0
+55	200857 841 1455 1455 0.1 5.532415065699 56 0 0 0 0
+56	201698 841 1455 1455 0.1 5.532415065699 56 0 0 0 0
+

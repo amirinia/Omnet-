@@ -1,0 +1,183 @@
+file 7750 1559845760                                            
+version 2
+run LMac-0-20190606-14:29:10-18776
+attr configname LMac
+attr datetime 20190606-14:29:10
+attr experiment LMac
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Ieee802154Showcasem
+attr processid 18776
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.wlan[*].mac.typename "\"LMac\""
+param **.mac.slotDuration 50ms
+param **.mac.numSlots 8
+param **.mac.reservedMobileSlots 0
+
+vector 0 Ieee802154Showcasem.sensor1.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 1 Ieee802154Showcasem.sensor2.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 2 Ieee802154Showcasem.sensor3.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 3 Ieee802154Showcasem.sensor4.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 4 Ieee802154Showcasem.sensor5.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 5 Ieee802154Showcasem.lamp1.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 6 Ieee802154Showcasem.controller.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 7 Ieee802154Showcasem.sensorNode.energyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 8 Ieee802154Showcasem.sensor1.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 9 Ieee802154Showcasem.sensor1.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 10 Ieee802154Showcasem.sensor2.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 11 Ieee802154Showcasem.sensor2.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 12 Ieee802154Showcasem.sensor3.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 13 Ieee802154Showcasem.sensor3.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 14 Ieee802154Showcasem.sensor4.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 15 Ieee802154Showcasem.sensor4.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 16 Ieee802154Showcasem.sensor5.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 17 Ieee802154Showcasem.sensor5.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 18 Ieee802154Showcasem.lamp1.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 19 Ieee802154Showcasem.lamp1.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 20 Ieee802154Showcasem.controller.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 21 Ieee802154Showcasem.controller.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 22 Ieee802154Showcasem.sensorNode.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 23 Ieee802154Showcasem.sensorNode.wlan[0].radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr source powerConsumptionChanged
+attr title "Power consumption, vector"
+vector 24 Ieee802154Showcasem.sensor1.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 25 Ieee802154Showcasem.sensor2.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 26 Ieee802154Showcasem.sensor3.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 27 Ieee802154Showcasem.sensor4.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 28 Ieee802154Showcasem.sensor5.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 29 Ieee802154Showcasem.lamp1.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 30 Ieee802154Showcasem.controller.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 31 Ieee802154Showcasem.sensorNode.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+0	6675 50 0 0 0 0 5 0 5e-006 5e-006 2.5e-011
+1	6725 50 0 0 0 0 5 0 5e-006 5e-006 2.5e-011
+2	6775 50 0 0 0 0 5 0 5e-006 5e-006 2.5e-011
+3	6825 50 0 0 0 0 5 0 5e-006 5e-006 2.5e-011
+4	6875 50 0 0 0 0 5 0 5e-006 5e-006 2.5e-011
+5	6925 50 0 0 0 0 5 0 5e-006 5e-006 2.5e-011
+6	6975 50 0 0 0 0 5 0 5e-006 5e-006 2.5e-011
+7	7025 50 0 0 0 0 5 0 5e-006 5e-006 2.5e-011
+8	7075 27 0 0 0 0 3 0 2 2 4
+9	7102 41 0 0 0 0 4 0 5e-006 5e-006 2.5e-011
+10	7143 30 0 0 0 0 3 0 2 2 4
+11	7173 45 0 0 0 0 4 0 5e-006 5e-006 2.5e-011
+12	7218 30 0 0 0 0 3 0 2 2 4
+13	7248 45 0 0 0 0 4 0 5e-006 5e-006 2.5e-011
+14	7293 30 0 0 0 0 3 0 2 2 4
+15	7323 45 0 0 0 0 4 0 5e-006 5e-006 2.5e-011
+16	7368 30 0 0 0 0 3 0 2 2 4
+17	7398 45 0 0 0 0 4 0 5e-006 5e-006 2.5e-011
+18	7443 30 0 0 0 0 3 0 2 2 4
+19	7473 45 0 0 0 0 4 0 5e-006 5e-006 2.5e-011
+20	7518 30 0 0 0 0 3 0 2 2 4
+21	7548 45 0 0 0 0 4 0 5e-006 5e-006 2.5e-011
+22	7593 30 0 0 0 0 3 0 2 2 4
+23	7623 45 0 0 0 0 4 0 5e-006 5e-006 2.5e-011
+24	7668 10 0 0 0 0 1 1 1 1 1
+25	7678 10 0 0 0 0 1 1 1 1 1
+26	7688 10 0 0 0 0 1 1 1 1 1
+27	7698 10 0 0 0 0 1 1 1 1 1
+28	7708 10 0 0 0 0 1 1 1 1 1
+29	7718 10 0 0 0 0 1 1 1 1 1
+30	7728 10 0 0 0 0 1 1 1 1 1
+31	7738 10 0 0 0 0 1 1 1 1 1
+
