@@ -1,15 +1,15 @@
-file 5387 1559847275                                            
+file 17933 1559925397                                           
 version 2
-run BMac-0-20190606-14:53:53-19052
+run BMac-0-20190607-12:36:05-18172
 attr configname BMac
-attr datetime 20190606-14:53:53
+attr datetime 20190607-12:36:05
 attr experiment BMac
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
 attr network SensorNetworkShowcaseA
-attr processid 19052
+attr processid 18172
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -49,7 +49,7 @@ param *.visualizer.*.routingTableVisualizer.displayRoutesIndividually false
 param *.visualizer.*.routingTableVisualizer.lineShift 0
 param *.visualizer.*.routingTableVisualizer.displayLabels false
 param *.visualizer.*.infoVisualizer.modules "\"*.server.app[0]\""
-param *.visualizer.*.infoVisualizer.format "\"%d\""
+param *.visualizer.*.infoVisualizer.format "\"%t\""
 param *.visualizer.*.networkRouteVisualizer.displayRoutes true
 param *.visualizer.*.physicalLinkVisualizer.displayLinks true
 
@@ -113,19 +113,109 @@ vector 14 SensorNetworkShowcaseA.gateway.wlan[0].radio.energyConsumer powerConsu
 attr interpolationmode sample-hold
 attr source powerConsumptionChanged
 attr title "Power consumption, vector"
-0	5060 27 0 0 0 0 3 0 0 0 0
-1	5087 27 0 0 0 0 3 0 0 0 0
-2	5114 27 0 0 0 0 3 0 0 0 0
-3	5141 27 0 0 0 0 3 0 0 0 0
-4	5168 27 0 0 0 0 3 0 0 0 0
-5	5195 18 0 0 0 0 2 0 0 0 0
-6	5213 18 0 0 0 0 2 0 0 0 0
-7	5231 18 0 0 0 0 2 0 0 0 0
-8	5249 18 0 0 0 0 2 0 0 0 0
-9	5267 18 0 0 0 0 2 0 0 0 0
-10	5285 20 0 0 0 0 2 0 0 0 0
-11	5305 20 0 0 0 0 2 0 0 0 0
-12	5325 20 0 0 0 0 2 0 0 0 0
-13	5345 20 0 0 0 0 2 0 0 0 0
-14	5365 20 0 0 0 0 2 0 0 0 0
+vector 15 SensorNetworkShowcaseA.sensor4.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 16 SensorNetworkShowcaseA.sensor4.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 17 SensorNetworkShowcaseA.gateway.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 18 SensorNetworkShowcaseA.gateway.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 19 SensorNetworkShowcaseA.sensor3.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 20 SensorNetworkShowcaseA.sensor3.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 21 SensorNetworkShowcaseA.sensor1.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 22 SensorNetworkShowcaseA.sensor1.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 23 SensorNetworkShowcaseA.sensor2.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, vector"
+vector 24 SensorNetworkShowcaseA.sensor2.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 25 SensorNetworkShowcaseA.sensor3.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 26 SensorNetworkShowcaseA.sensor3.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 27 SensorNetworkShowcaseA.sensor3.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+0	7673 565 0 86 0 0.122663192358 24 0 0.05 0.100037 0.005000000157
+1	8238 362 0 41 0 0.099793125836 16 0 5e-006 2.2e-005 8.2e-011
+2	8600 362 0 42 0 0.100304218162 16 0 5e-006 2.2e-005 8.2e-011
+3	8962 795 0 88 0 0.123596482329 33 0 0.075 0.34502 0.02272500008
+4	9757 567 0 84 0 0.122663179658 24 0 0.05 0.100037 0.005000000157
+5	10324 187 0 66 0 0.116941627791 10 0 2 12 20
+6	10511 556 0 86 0 0.122663192358 23 0 0.05 0.100037 0.005000000157
+7	11067 165 0 41 0 0.099793125836 9 0 2 10 16
+8	11232 353 0 41 0 0.099793125836 15 0 5e-006 2.2e-005 8.2e-011
+9	11585 165 0 42 0 0.100304218162 9 0 2 10 16
+10	11750 368 0 42 0 0.100304218162 15 0 5e-006 2.2e-005 8.2e-011
+11	12118 174 0 43 0 0.107663148995 9 0 3 12 24
+12	12292 818 0 88 0 0.123596482329 32 0 0.075 0.34502 0.02272500008
+13	13110 198 0 67 0 0.116999429285 10 0 2 12 20
+14	13308 581 0 84 0 0.122663179658 23 0 0.05 0.100037 0.005000000157
+15	13889 420 9 86 0.011941627791 0.122663192358 10 -4.6927549483956e-005 -1.1941627791e-008 -9.4983906479745e-005 4.4026972685121e-009
+16	14309 239 9 86 0.011941627791 0.122663192358 10 0 3 11 23
+17	14548 418 10 84 0.011999429285 0.122663179658 10 -4.692731821448e-005 -1.1999429285e-008 -9.4983617281775e-005 4.4026538602341e-009
+18	14966 240 10 84 0.011999429285 0.122663179658 10 0 3 11 23
+19	15206 550 11 88 0.013222373038 0.123596482329 13 -0.00034122766333899 -1.3222373038e-008 -0.0013663018585931 3.2458465380817e-007
+20	15756 144 11 43 0.013222373038 0.107663148995 6 0 1 3 3
+21	15900 249 12 41 0.019793125836 0.099793125836 6 -2.19793125836e-007 -1.9793125836e-008 -7.18758755016e-007 1.1235235798536e-013
+22	16149 144 12 41 0.019793125836 0.099793125836 6 0 1 3 3
+23	16293 249 13 42 0.020304218162 0.100304218162 6 -2.20304218162e-007 -2.0304218162e-008 -7.21825308972e-007 1.1308862944542e-013
+24	16542 144 13 42 0.020304218162 0.100304218162 6 0 1 3 3
+25	16686 25 27 27 0.058384669093 0.058384669093 1 10 10 10 100
+26	16711 25 29 29 0.058384669093 0.058384669093 1 18 18 18 324
+27	16736 216 43 88 0.107663148995 0.123596482329 9 1 2 13 21
+vector 28 SensorNetworkShowcaseA.sensor4.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 29 SensorNetworkShowcaseA.sensor1.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 30 SensorNetworkShowcaseA.sensor2.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 31 SensorNetworkShowcaseA.sensor3.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 32 SensorNetworkShowcaseA.server.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+28	17746 37 88 88 0.1 0.123596486588 2 0 0 0 0
+29	17783 37 88 88 0.1 0.123596486588 2 0 0 0 0
+30	17820 37 88 88 0.1 0.123596486588 2 0 0 0 0
+31	17857 37 88 88 0.1 0.123596486588 2 0 0 0 0
+32	17894 37 88 88 0.1 0.123596486588 2 0 0 0 0
 

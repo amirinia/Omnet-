@@ -2,13 +2,14 @@ package inet.showcases.wireless.sensornetwork;
 
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
+import inet.node.inet.AdhocHost;
 import inet.node.inet.StandardHost;
 import inet.node.inet.SensorNode;
 import inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
 
-network SensorNetworkShowcaseA3
+network SensorNetworkShowcaseA33
 {
     @display("bgb=60,30;bgi=showcases/warehouse,s");
     submodules:
@@ -33,11 +34,11 @@ network SensorNetworkShowcaseA3
         sensor3: SensorNode {
             @display("p=40.46,6.46;i=misc/sensor2");
         }
-        sensor5: SensorNode {
-            @display("p=13.09,20.74;i=misc/sensor2");
+        sensor5: AdhocHost {
+            @display("p=13.09,20.74;i=misc/drone");
         }
         CH: SensorNode {
-            @display("p=32.64,14.110001;i=misc/sensorgateway");
+            @display("p=28.5,13;i=misc/sensorgateway");
         }
         controller: StandardHost {
             @display("p=56.440002,14.110001");

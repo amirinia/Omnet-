@@ -1,25 +1,30 @@
 version 2
-run General-0-20190610-17:35:21-22780
-attr configname General
-attr datetime 20190610-17:35:21
-attr experiment General
-attr inifile SensorNetworkSimpleCluster3.ini
-attr iterationvars ""
-attr iterationvarsf ""
-attr measurement ""
-attr network SensorNetworkShowcaseA33
-attr processid 22780
+run StatisticLMac-0-20190607-12:52:28-13388
+attr configname StatisticLMac
+attr datetime 20190607-12:52:28
+attr experiment StatisticLMac
+attr inifile omnetpp9.ini
+attr iterationvars $slotDuration=0.01
+attr iterationvarsf slotDuration=0.01-
+attr measurement $slotDuration=0.01
+attr network SensorNetworkShowcaseB
+attr processid 13388
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
+itervar slotDuration 0.01
+param **.wlan[*].mac.typename "\"LMac\""
+param **.mac.slotDuration 0.01s
+param **.mac.numSlots 8
+param **.mac.reservedMobileSlots 0
 param **.wlan[*].typename "\"WirelessInterface\""
 param **.wlan[*].radio.typename "\"ApskScalarRadio\""
 param **.arp.typename "\"GlobalArp\""
-param *.CH.forwarding true
+param *.clusterhead.forwarding true
 param *.configurator.addStaticRoutes false
-param *.configurator.config "xmldoc(\"config4.xml\")"
+param *.configurator.config "xmldoc(\"config.xml\")"
 param **.radio.carrierFrequency 2.45GHz
 param **.radio.bandwidth 2.8MHz
 param **.radio.transmitter.bitrate "19200 bps"
@@ -38,7 +43,6 @@ param *.sensor*.app[0].destPort 1000
 param *.sensor*.app[0].sendInterval 1s
 param *.sensor*.app[0].startTime exponential(1s)
 param *.sensor*.app[0].messageLength 10Byte
-param *.sensor*.app[*].packetName "\"SensorData\""
 param *.controller.numApps 1
 param *.controller.app[0].typename "\"UdpSink\""
 param *.controller.app[0].localPort 1000
@@ -50,1338 +54,87 @@ param *.visualizer.*.infoVisualizer.modules "\"*.controller.app[0]\""
 param *.visualizer.*.infoVisualizer.format "\"%t\""
 param *.visualizer.*.networkRouteVisualizer.displayRoutes true
 param *.visualizer.*.physicalLinkVisualizer.displayLinks true
-param **.wlan[*].mac.typename "\"LMac\""
-param **.mac.slotDuration 50ms
-param **.mac.numSlots 8
-param **.mac.reservedMobileSlots 0
-param *.host[*].energyStorage.typename "\"SimpleEpEnergyStorage\""
-param *.host[*].wlan[*].radio.energyConsumer.typename "\"StateBasedEpEnergyConsumer\""
-param *.host[*].energyManagement.typename "\"SimpleEpEnergyManagement\""
-param *.host[*].energyStorage.nominalCapacity 0.05J
-param *.host[*].energyManagement.nodeShutdownCapacity "0.1 * energyStorage.nominalCapacity"
-param *.host[*].energyManagement.nodeStartCapacity "0.5 * energyStorage.nominalCapacity"
-param *.host[*].energyStorage.initialCapacity "uniform(0.1 * energyStorage.nominalCapacity, energyStorage.nominalCapacity)"
-param *.host[*].energyGenerator.typename "\"AlternatingEpEnergyGenerator\""
-param *.host[*].energyGenerator.powerGeneration 4mW
-param *.host[*].energyGenerator.sleepInterval exponential(25s)
-param *.host[*].energyGenerator.generationInterval exponential(25s)
-param *.sensor*.energyStorage.typename "\"IdealEpEnergyStorage\""
-param *.sensor*.wlan[0].radio.displayInterferenceRange false
-param *.sensor*.wlan[0].radio.displayCommunicationRange false
-param *.visualizer.mediumVisualizer.displaySignals false
-param *.sensor5.mobility.typename "\"LinearMobility\""
-param *.sensor5.mobility.speed 0.2mps
-param *.sensor5.mobility.initialMovementHeading 270deg
-param *.host*.wlan[0].mac.maxQueueSize 10
-param *.visualizer.mobilityVisualizer.displayVelocities true
-param *.visualizer.mobilityVisualizer.displayMovementTrails true
 
-scalar SensorNetworkShowcaseA33.radioMedium.propagation "Arrival computation count" 223640
-scalar SensorNetworkShowcaseA33.radioMedium "transmission count" 44728
-scalar SensorNetworkShowcaseA33.radioMedium "signal send count" 223640
-scalar SensorNetworkShowcaseA33.radioMedium "reception computation count" 223640
-scalar SensorNetworkShowcaseA33.radioMedium "interference computation count" 806334
-scalar SensorNetworkShowcaseA33.radioMedium "reception decision computation count" 179332
-scalar SensorNetworkShowcaseA33.radioMedium "listening decision computation count" 447670
-scalar SensorNetworkShowcaseA33.radioMedium "reception cache hit" 82.792051903924
+scalar SensorNetworkShowcaseB.radioMedium.propagation "Arrival computation count" 24
+scalar SensorNetworkShowcaseB.radioMedium "transmission count" 6
+scalar SensorNetworkShowcaseB.radioMedium "signal send count" 24
+scalar SensorNetworkShowcaseB.radioMedium "reception computation count" 24
+scalar SensorNetworkShowcaseB.radioMedium "interference computation count" 107
+scalar SensorNetworkShowcaseB.radioMedium "reception decision computation count" 24
+scalar SensorNetworkShowcaseB.radioMedium "listening decision computation count" 59
+scalar SensorNetworkShowcaseB.radioMedium "reception cache hit" 85.714285714286
 attr unit %
-scalar SensorNetworkShowcaseA33.radioMedium "interference cache hit" 66.666666666667
+scalar SensorNetworkShowcaseB.radioMedium "interference cache hit" 66.666666666667
 attr unit %
-scalar SensorNetworkShowcaseA33.radioMedium "noise cache hit" 0
+scalar SensorNetworkShowcaseB.radioMedium "noise cache hit" 0
 attr unit %
-scalar SensorNetworkShowcaseA33.radioMedium "snir cache hit" 50
+scalar SensorNetworkShowcaseB.radioMedium "snir cache hit" 50
 attr unit %
-scalar SensorNetworkShowcaseA33.radioMedium "reception decision cache hit" 50
+scalar SensorNetworkShowcaseB.radioMedium "reception decision cache hit" 50
 attr unit %
-scalar SensorNetworkShowcaseA33.radioMedium "reception result cache hit" 0
+scalar SensorNetworkShowcaseB.radioMedium "reception result cache hit" 0
 attr unit %
-scalar SensorNetworkShowcaseA33.sensor4.energyStorage residualEnergyCapacity:last -5.2520102767798
+scalar SensorNetworkShowcaseB.sensor4.energyStorage residualEnergyCapacity:last -0.00043883629095695
 attr interpolationmode linear
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity, last"
-scalar SensorNetworkShowcaseA33.sensor4.lo[0].lo rcvdPkFromHl:count 0
+scalar SensorNetworkShowcaseB.sensor4.lo[0].lo rcvdPkFromHl:count 0
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar SensorNetworkShowcaseA33.sensor4.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor4.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.lo[0].lo passedUpPk:count 0
+scalar SensorNetworkShowcaseB.sensor4.lo[0].lo passedUpPk:count 0
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar SensorNetworkShowcaseA33.sensor4.lo[0].lo passedUpPk:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor4.lo[0].lo passedUpPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.wlan[0].mac packetDropIncorrectlyReceived:count 0
+scalar SensorNetworkShowcaseB.sensor4.wlan[0].mac packetDropIncorrectlyReceived:count 0
 attr interpolationmode none
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, count"
-scalar SensorNetworkShowcaseA33.sensor4.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor4.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.wlan[0].mac packetDropNotAddressedToUs:count 0
+scalar SensorNetworkShowcaseB.sensor4.wlan[0].mac packetDropNotAddressedToUs:count 0
 attr interpolationmode none
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, count"
-scalar SensorNetworkShowcaseA33.sensor4.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor4.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.sensor4.wlan[0].radio minSnir:histogram
-field count 28042
-field mean 55598.688679458
-field stddev 295602.8166518
-field min 115.45150772953
-field max 9069521.1752086
-field sum 1559098427.9493
-field sqrsum 2.5369351560992e+015
+statistic SensorNetworkShowcaseB.sensor4.wlan[0].radio minSnir:histogram
+field count 5
+field mean 92013.762061055
+field stddev 41984.047805876
+field min 29803.870712685
+field max 131036.21744486
+field sum 460068.81030527
+field sqrsum 49383303123.806
 attr source minimumSnir(packetSentToUpper)
 attr title "Min SNIR, histogram"
 bin	-inf	0
-bin	0	27756
-bin	160000	86
-bin	320000	38
-bin	480000	23
-bin	640000	16
-bin	800000	12
-bin	960000	9
-bin	1120000	8
-bin	1280000	6
-bin	1440000	6
-bin	1600000	4
-bin	1760000	4
-bin	1920000	4
-bin	2080000	3
-bin	2240000	3
-bin	2400000	3
-bin	2560000	3
-bin	2720000	2
-bin	2880000	2
-bin	3040000	2
-bin	3200000	2
-bin	3360000	2
-bin	3520000	2
-bin	3680000	2
-bin	3840000	1
-bin	4000000	1
-bin	4160000	2
-bin	4320000	2
-bin	4480000	0
-bin	4640000	2
-bin	4800000	1
-bin	4960000	1
-bin	5120000	2
-bin	5280000	0
-bin	5440000	2
-bin	5600000	1
-bin	5760000	1
-bin	5920000	1
-bin	6080000	1
-bin	6240000	2
-bin	6400000	0
-bin	6560000	2
-bin	6720000	0
-bin	6880000	2
-bin	7040000	0
-bin	7200000	2
-bin	7360000	0
-bin	7520000	2
-bin	7680000	1
-bin	7840000	1
-bin	8000000	1
-bin	8160000	1
-bin	8320000	2
-bin	8480000	2
-bin	8640000	2
-bin	8800000	2
-bin	8960000	4
-bin	9120000	0
-statistic SensorNetworkShowcaseA33.sensor4.wlan[0].radio packetErrorRate:histogram
-field count 28042
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source packetErrorRate(packetSentToUpper)
-attr title "Packet error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28042
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-statistic SensorNetworkShowcaseA33.sensor4.wlan[0].radio bitErrorRate:histogram
-field count 28042
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source bitErrorRate(packetSentToUpper)
-attr title "Bit error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28042
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-statistic SensorNetworkShowcaseA33.sensor4.wlan[0].radio symbolErrorRate:histogram
-field count 28042
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source symbolErrorRate(packetSentToUpper)
-attr title "Symbol error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28042
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-scalar SensorNetworkShowcaseA33.sensor4.wlan[0].radio transmissionState:count 26866
-attr interpolationmode sample-hold
-attr source transmissionStateChanged
-attr title "Radio transmission state, count"
-scalar SensorNetworkShowcaseA33.sensor4.wlan[0].radio receptionState:count 145530
-attr interpolationmode sample-hold
-attr source receptionStateChanged
-attr title "Radio reception state, count"
-scalar SensorNetworkShowcaseA33.sensor4.wlan[0].radio radioMode:count 95057
-attr interpolationmode sample-hold
-attr source radioModeChanged
-attr title "Radio mode, count"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropAddressResolutionFailed:count 0
-attr interpolationmode none
-attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
-attr title "packet drop: address resolution failed, count"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
-attr title "packet drop: address resolution failed, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropHopLimitReached:count 0
-attr interpolationmode none
-attr source packetDropReasonIsHopLimitReached(packetDropped)
-attr title "packet drop: hop limit reached, count"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsHopLimitReached(packetDropped)
-attr title "packet drop: hop limit reached, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropForwardingDisabled:count 0
-attr interpolationmode none
-attr source packetDropReasonIsForwardingDisabled(packetDropped)
-attr title "packet drop: forwarding disabled, count"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsForwardingDisabled(packetDropped)
-attr title "packet drop: forwarding disabled, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropNoInterfaceFound:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoInterfaceFound(packetDropped)
-attr title "packet drop: no interface found, count"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNoInterfaceFound(packetDropped)
-attr title "packet drop: no interface found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropNoRouteFound:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoRouteFound(packetDropped)
-attr title "packet drop: no route found, count"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNoRouteFound(packetDropped)
-attr title "packet drop: no route found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropUndefined:count 0
-attr interpolationmode none
-attr source packetDropReasonIsUndefined(packetDropped)
-attr title "packet drop: undefined, count"
-scalar SensorNetworkShowcaseA33.sensor4.ipv4.ip packetDropUndefined:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsUndefined(packetDropped)
-attr title "packet drop: undefined, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.udp packetReceived:count 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.sensor4.udp packetReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.udp packetSent:count 2215
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.sensor4.udp packetSent:sum(packetBytes) 39870
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor4.udp passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed up, count"
-scalar SensorNetworkShowcaseA33.sensor4.udp droppedPkWrongPort:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoPortFound(packetDropped)
-attr title "packets dropped (wrong port), count"
-scalar SensorNetworkShowcaseA33.sensor4.udp droppedPkBadChecksum:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packets dropped (checksum error), count"
-scalar SensorNetworkShowcaseA33.sensor4.app[0] "packets sent" 2215
-scalar SensorNetworkShowcaseA33.sensor4.app[0] "packets received" 0
-scalar SensorNetworkShowcaseA33.sensor4.app[0] packetReceived:count 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.sensor4.app[0] packetReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.sensor4.app[0] rcvdPkLifetime:stats
-field count 0
-field mean nan
-field stddev nan
-field min nan
-field max nan
-field sum 0
-field sqrsum 0
-attr interpolationmode none
-attr source dataAge(packetReceived)
-attr title "received packet lifetime, stats"
-attr unit s
-scalar SensorNetworkShowcaseA33.sensor4.app[0] packetSent:count 2215
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.sensor4.app[0] packetSent:sum(packetBytes) 22150
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.energyStorage residualEnergyCapacity:last -5.2507174422122
-attr interpolationmode linear
-attr source residualEnergyCapacityChanged
-attr title "Residual energy capacity, last"
-scalar SensorNetworkShowcaseA33.sensor1.lo[0].lo rcvdPkFromHl:count 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packets received from higher layer, count"
-scalar SensorNetworkShowcaseA33.sensor1.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packets received from higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.lo[0].lo passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, count"
-scalar SensorNetworkShowcaseA33.sensor1.lo[0].lo passedUpPk:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.wlan[0].mac packetDropIncorrectlyReceived:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, count"
-scalar SensorNetworkShowcaseA33.sensor1.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.wlan[0].mac packetDropNotAddressedToUs:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, count"
-scalar SensorNetworkShowcaseA33.sensor1.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.sensor1.wlan[0].radio minSnir:histogram
-field count 28043
-field mean 89694.453549047
-field stddev 87291.31240625
-field min 107.39414269211
-field max 256380.11084625
-field sum 2515301560.8759
-field sqrsum 4.3928227969409e+014
-attr source minimumSnir(packetSentToUpper)
-attr title "Min SNIR, histogram"
-bin	-inf	0
-bin	0	4769
-bin	5000	252
-bin	10000	116
-bin	15000	72
-bin	20000	52
-bin	25000	40
-bin	30000	33
-bin	35000	29
-bin	40000	5635
-bin	45000	24
-bin	50000	23
-bin	55000	23
-bin	60000	5634
-bin	65000	34
-bin	70000	90
-bin	75000	0
-bin	80000	5608
-bin	85000	0
-bin	90000	0
-bin	95000	0
-bin	100000	0
-bin	105000	0
-bin	110000	0
-bin	115000	0
-bin	120000	0
-bin	125000	0
-bin	130000	0
-bin	135000	0
-bin	140000	0
-bin	145000	0
-bin	150000	0
-bin	155000	0
-bin	160000	0
-bin	165000	0
-bin	170000	0
-bin	175000	0
-bin	180000	0
-bin	185000	0
-bin	190000	0
-bin	195000	0
-bin	200000	0
-bin	205000	0
-bin	210000	0
-bin	215000	0
-bin	220000	0
-bin	225000	0
-bin	230000	0
-bin	235000	0
-bin	240000	0
-bin	245000	0
-bin	250000	0
-bin	255000	5609
-bin	260000	0
-bin	265000	0
-bin	270000	0
-bin	275000	0
-bin	280000	0
-bin	285000	0
-bin	290000	0
-bin	295000	0
-bin	300000	0
-bin	305000	0
-bin	310000	0
-statistic SensorNetworkShowcaseA33.sensor1.wlan[0].radio packetErrorRate:histogram
-field count 28043
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source packetErrorRate(packetSentToUpper)
-attr title "Packet error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28043
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-statistic SensorNetworkShowcaseA33.sensor1.wlan[0].radio bitErrorRate:histogram
-field count 28043
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source bitErrorRate(packetSentToUpper)
-attr title "Bit error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28043
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-statistic SensorNetworkShowcaseA33.sensor1.wlan[0].radio symbolErrorRate:histogram
-field count 28043
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source symbolErrorRate(packetSentToUpper)
-attr title "Symbol error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28043
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-scalar SensorNetworkShowcaseA33.sensor1.wlan[0].radio transmissionState:count 26860
-attr interpolationmode sample-hold
-attr source transmissionStateChanged
-attr title "Radio transmission state, count"
-scalar SensorNetworkShowcaseA33.sensor1.wlan[0].radio receptionState:count 145532
-attr interpolationmode sample-hold
-attr source receptionStateChanged
-attr title "Radio reception state, count"
-scalar SensorNetworkShowcaseA33.sensor1.wlan[0].radio radioMode:count 95056
-attr interpolationmode sample-hold
-attr source radioModeChanged
-attr title "Radio mode, count"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropAddressResolutionFailed:count 0
-attr interpolationmode none
-attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
-attr title "packet drop: address resolution failed, count"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
-attr title "packet drop: address resolution failed, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropHopLimitReached:count 0
-attr interpolationmode none
-attr source packetDropReasonIsHopLimitReached(packetDropped)
-attr title "packet drop: hop limit reached, count"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsHopLimitReached(packetDropped)
-attr title "packet drop: hop limit reached, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropForwardingDisabled:count 0
-attr interpolationmode none
-attr source packetDropReasonIsForwardingDisabled(packetDropped)
-attr title "packet drop: forwarding disabled, count"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsForwardingDisabled(packetDropped)
-attr title "packet drop: forwarding disabled, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropNoInterfaceFound:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoInterfaceFound(packetDropped)
-attr title "packet drop: no interface found, count"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNoInterfaceFound(packetDropped)
-attr title "packet drop: no interface found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropNoRouteFound:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoRouteFound(packetDropped)
-attr title "packet drop: no route found, count"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNoRouteFound(packetDropped)
-attr title "packet drop: no route found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropUndefined:count 0
-attr interpolationmode none
-attr source packetDropReasonIsUndefined(packetDropped)
-attr title "packet drop: undefined, count"
-scalar SensorNetworkShowcaseA33.sensor1.ipv4.ip packetDropUndefined:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsUndefined(packetDropped)
-attr title "packet drop: undefined, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.udp packetReceived:count 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.sensor1.udp packetReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.udp packetSent:count 2215
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.sensor1.udp packetSent:sum(packetBytes) 39870
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor1.udp passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed up, count"
-scalar SensorNetworkShowcaseA33.sensor1.udp droppedPkWrongPort:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoPortFound(packetDropped)
-attr title "packets dropped (wrong port), count"
-scalar SensorNetworkShowcaseA33.sensor1.udp droppedPkBadChecksum:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packets dropped (checksum error), count"
-scalar SensorNetworkShowcaseA33.sensor1.app[0] "packets sent" 2215
-scalar SensorNetworkShowcaseA33.sensor1.app[0] "packets received" 0
-scalar SensorNetworkShowcaseA33.sensor1.app[0] packetReceived:count 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.sensor1.app[0] packetReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.sensor1.app[0] rcvdPkLifetime:stats
-field count 0
-field mean nan
-field stddev nan
-field min nan
-field max nan
-field sum 0
-field sqrsum 0
-attr interpolationmode none
-attr source dataAge(packetReceived)
-attr title "received packet lifetime, stats"
-attr unit s
-scalar SensorNetworkShowcaseA33.sensor1.app[0] packetSent:count 2215
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.sensor1.app[0] packetSent:sum(packetBytes) 22150
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.energyStorage residualEnergyCapacity:last -5.2532355766347
-attr interpolationmode linear
-attr source residualEnergyCapacityChanged
-attr title "Residual energy capacity, last"
-scalar SensorNetworkShowcaseA33.sensor2.lo[0].lo rcvdPkFromHl:count 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packets received from higher layer, count"
-scalar SensorNetworkShowcaseA33.sensor2.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packets received from higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.lo[0].lo passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, count"
-scalar SensorNetworkShowcaseA33.sensor2.lo[0].lo passedUpPk:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.wlan[0].mac packetDropIncorrectlyReceived:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, count"
-scalar SensorNetworkShowcaseA33.sensor2.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.wlan[0].mac packetDropNotAddressedToUs:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, count"
-scalar SensorNetworkShowcaseA33.sensor2.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.sensor2.wlan[0].radio minSnir:histogram
-field count 28043
-field mean 46212.214934017
-field stddev 31796.388083155
-field min 106.95316703649
-field max 81431.50737678
-field sum 1295929143.3947
-field sqrsum 88238506809975
-attr source minimumSnir(packetSentToUpper)
-attr title "Min SNIR, histogram"
-bin	-inf	0
-bin	0	4336
-bin	2000	409
-bin	4000	194
-bin	6000	125
-bin	8000	93
-bin	10000	77
-bin	12000	69
-bin	14000	68
-bin	16000	5689
-bin	18000	158
+bin	4000	0
+bin	6000	0
+bin	8000	0
+bin	10000	0
+bin	12000	0
+bin	14000	0
+bin	16000	0
+bin	18000	0
 bin	20000	0
 bin	22000	0
 bin	24000	0
 bin	26000	0
-bin	28000	0
+bin	28000	1
 bin	30000	0
-bin	32000	0
-bin	34000	0
-bin	36000	0
-bin	38000	0
-bin	40000	0
-bin	42000	0
-bin	44000	0
-bin	46000	0
-bin	48000	0
-bin	50000	0
-bin	52000	5609
-bin	54000	0
-bin	56000	0
-bin	58000	0
-bin	60000	0
-bin	62000	0
-bin	64000	0
-bin	66000	0
-bin	68000	0
-bin	70000	0
-bin	72000	0
-bin	74000	0
-bin	76000	5608
-bin	78000	0
-bin	80000	5608
-bin	82000	0
-bin	84000	0
-bin	86000	0
-bin	88000	0
-bin	90000	0
-bin	92000	0
-bin	94000	0
-bin	96000	0
-bin	98000	0
-statistic SensorNetworkShowcaseA33.sensor2.wlan[0].radio packetErrorRate:histogram
-field count 28043
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source packetErrorRate(packetSentToUpper)
-attr title "Packet error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28043
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-statistic SensorNetworkShowcaseA33.sensor2.wlan[0].radio bitErrorRate:histogram
-field count 28043
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source bitErrorRate(packetSentToUpper)
-attr title "Bit error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28043
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-statistic SensorNetworkShowcaseA33.sensor2.wlan[0].radio symbolErrorRate:histogram
-field count 28043
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source symbolErrorRate(packetSentToUpper)
-attr title "Symbol error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28043
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-scalar SensorNetworkShowcaseA33.sensor2.wlan[0].radio transmissionState:count 26864
-attr interpolationmode sample-hold
-attr source transmissionStateChanged
-attr title "Radio transmission state, count"
-scalar SensorNetworkShowcaseA33.sensor2.wlan[0].radio receptionState:count 145532
-attr interpolationmode sample-hold
-attr source receptionStateChanged
-attr title "Radio reception state, count"
-scalar SensorNetworkShowcaseA33.sensor2.wlan[0].radio radioMode:count 95056
-attr interpolationmode sample-hold
-attr source radioModeChanged
-attr title "Radio mode, count"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropAddressResolutionFailed:count 0
-attr interpolationmode none
-attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
-attr title "packet drop: address resolution failed, count"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
-attr title "packet drop: address resolution failed, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropHopLimitReached:count 0
-attr interpolationmode none
-attr source packetDropReasonIsHopLimitReached(packetDropped)
-attr title "packet drop: hop limit reached, count"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsHopLimitReached(packetDropped)
-attr title "packet drop: hop limit reached, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropForwardingDisabled:count 0
-attr interpolationmode none
-attr source packetDropReasonIsForwardingDisabled(packetDropped)
-attr title "packet drop: forwarding disabled, count"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsForwardingDisabled(packetDropped)
-attr title "packet drop: forwarding disabled, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropNoInterfaceFound:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoInterfaceFound(packetDropped)
-attr title "packet drop: no interface found, count"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNoInterfaceFound(packetDropped)
-attr title "packet drop: no interface found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropNoRouteFound:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoRouteFound(packetDropped)
-attr title "packet drop: no route found, count"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNoRouteFound(packetDropped)
-attr title "packet drop: no route found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropUndefined:count 0
-attr interpolationmode none
-attr source packetDropReasonIsUndefined(packetDropped)
-attr title "packet drop: undefined, count"
-scalar SensorNetworkShowcaseA33.sensor2.ipv4.ip packetDropUndefined:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsUndefined(packetDropped)
-attr title "packet drop: undefined, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.udp packetReceived:count 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.sensor2.udp packetReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.udp packetSent:count 2216
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.sensor2.udp packetSent:sum(packetBytes) 39888
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor2.udp passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed up, count"
-scalar SensorNetworkShowcaseA33.sensor2.udp droppedPkWrongPort:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoPortFound(packetDropped)
-attr title "packets dropped (wrong port), count"
-scalar SensorNetworkShowcaseA33.sensor2.udp droppedPkBadChecksum:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packets dropped (checksum error), count"
-scalar SensorNetworkShowcaseA33.sensor2.app[0] "packets sent" 2216
-scalar SensorNetworkShowcaseA33.sensor2.app[0] "packets received" 0
-scalar SensorNetworkShowcaseA33.sensor2.app[0] packetReceived:count 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.sensor2.app[0] packetReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.sensor2.app[0] rcvdPkLifetime:stats
-field count 0
-field mean nan
-field stddev nan
-field min nan
-field max nan
-field sum 0
-field sqrsum 0
-attr interpolationmode none
-attr source dataAge(packetReceived)
-attr title "received packet lifetime, stats"
-attr unit s
-scalar SensorNetworkShowcaseA33.sensor2.app[0] packetSent:count 2216
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.sensor2.app[0] packetSent:sum(packetBytes) 22160
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.energyStorage residualEnergyCapacity:last -5.2532355744648
-attr interpolationmode linear
-attr source residualEnergyCapacityChanged
-attr title "Residual energy capacity, last"
-scalar SensorNetworkShowcaseA33.sensor3.lo[0].lo rcvdPkFromHl:count 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packets received from higher layer, count"
-scalar SensorNetworkShowcaseA33.sensor3.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packets received from higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.lo[0].lo passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, count"
-scalar SensorNetworkShowcaseA33.sensor3.lo[0].lo passedUpPk:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.wlan[0].mac packetDropIncorrectlyReceived:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, count"
-scalar SensorNetworkShowcaseA33.sensor3.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.wlan[0].mac packetDropNotAddressedToUs:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, count"
-scalar SensorNetworkShowcaseA33.sensor3.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.sensor3.wlan[0].radio minSnir:histogram
-field count 28043
-field mean 57797.778309826
-field stddev 38063.786747798
-field min 114.98474875803
-field max 114303.87794183
-field sum 1620823097.1424
-field sqrsum 1.3430867795056e+014
-attr source minimumSnir(packetSentToUpper)
-attr title "Min SNIR, histogram"
-bin	-inf	0
-bin	0	4120
-bin	2000	398
-bin	4000	184
-bin	6000	114
-bin	8000	82
-bin	10000	64
-bin	12000	53
-bin	14000	46
-bin	16000	41
-bin	18000	39
-bin	20000	37
-bin	22000	139
-bin	24000	86
-bin	26000	130
-bin	28000	76
-bin	30000	5609
 bin	32000	0
 bin	34000	0
 bin	36000	0
@@ -1396,7 +149,7 @@ bin	52000	0
 bin	54000	0
 bin	56000	0
 bin	58000	0
-bin	60000	5608
+bin	60000	0
 bin	62000	0
 bin	64000	0
 bin	66000	0
@@ -1404,9 +157,437 @@ bin	68000	0
 bin	70000	0
 bin	72000	0
 bin	74000	0
-bin	76000	5608
+bin	76000	0
 bin	78000	0
-bin	80000	0
+bin	80000	1
+bin	82000	0
+bin	84000	0
+bin	86000	1
+bin	88000	0
+bin	90000	0
+bin	92000	0
+bin	94000	0
+bin	96000	0
+bin	98000	0
+bin	100000	0
+bin	102000	0
+bin	104000	0
+bin	106000	0
+bin	108000	0
+bin	110000	0
+bin	112000	0
+bin	114000	0
+bin	116000	0
+bin	118000	0
+bin	120000	0
+bin	122000	0
+bin	124000	0
+bin	126000	0
+bin	128000	0
+bin	130000	2
+bin	132000	0
+bin	134000	0
+bin	136000	0
+bin	138000	0
+bin	140000	0
+bin	142000	0
+bin	144000	0
+bin	146000	0
+bin	148000	0
+bin	150000	0
+bin	152000	0
+bin	154000	0
+bin	156000	0
+bin	158000	0
+statistic SensorNetworkShowcaseB.sensor4.wlan[0].radio packetErrorRate:histogram
+field count 5
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	5
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SensorNetworkShowcaseB.sensor4.wlan[0].radio bitErrorRate:histogram
+field count 5
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	5
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SensorNetworkShowcaseB.sensor4.wlan[0].radio symbolErrorRate:histogram
+field count 5
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	5
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar SensorNetworkShowcaseB.sensor4.wlan[0].radio transmissionState:count 4
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar SensorNetworkShowcaseB.sensor4.wlan[0].radio receptionState:count 23
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SensorNetworkShowcaseB.sensor4.wlan[0].radio radioMode:count 16
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SensorNetworkShowcaseB.sensor4.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor4.udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SensorNetworkShowcaseB.sensor4.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor4.udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SensorNetworkShowcaseB.sensor4.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor4.udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SensorNetworkShowcaseB.sensor4.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SensorNetworkShowcaseB.sensor4.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar SensorNetworkShowcaseB.sensor4.app[0] "packets sent" 0
+scalar SensorNetworkShowcaseB.sensor4.app[0] "packets received" 0
+scalar SensorNetworkShowcaseB.sensor4.app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SensorNetworkShowcaseB.sensor4.app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic SensorNetworkShowcaseB.sensor4.app[0] rcvdPkLifetime:stats
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, stats"
+attr unit s
+scalar SensorNetworkShowcaseB.sensor4.app[0] packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SensorNetworkShowcaseB.sensor4.app[0] packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor1.energyStorage residualEnergyCapacity:last -0.00043883629101145
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, last"
+scalar SensorNetworkShowcaseB.sensor1.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SensorNetworkShowcaseB.sensor1.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor1.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SensorNetworkShowcaseB.sensor1.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor1.wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SensorNetworkShowcaseB.sensor1.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor1.wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SensorNetworkShowcaseB.sensor1.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+statistic SensorNetworkShowcaseB.sensor1.wlan[0].radio minSnir:histogram
+field count 5
+field mean 83285.881968863
+field stddev 41295.748471486
+field min 30884.707383341
+field max 123979.9087632
+field sum 416429.40984432
+field sqrsum 41504046043.938
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	6000	0
+bin	8000	0
+bin	10000	0
+bin	12000	0
+bin	14000	0
+bin	16000	0
+bin	18000	0
+bin	20000	0
+bin	22000	0
+bin	24000	0
+bin	26000	0
+bin	28000	0
+bin	30000	1
+bin	32000	0
+bin	34000	0
+bin	36000	0
+bin	38000	0
+bin	40000	0
+bin	42000	0
+bin	44000	0
+bin	46000	0
+bin	48000	0
+bin	50000	0
+bin	52000	0
+bin	54000	1
+bin	56000	0
+bin	58000	0
+bin	60000	0
+bin	62000	0
+bin	64000	0
+bin	66000	0
+bin	68000	0
+bin	70000	0
+bin	72000	0
+bin	74000	0
+bin	76000	0
+bin	78000	0
+bin	80000	1
 bin	82000	0
 bin	84000	0
 bin	86000	0
@@ -1423,11 +604,11 @@ bin	106000	0
 bin	108000	0
 bin	110000	0
 bin	112000	0
-bin	114000	5609
+bin	114000	0
 bin	116000	0
 bin	118000	0
 bin	120000	0
-bin	122000	0
+bin	122000	2
 bin	124000	0
 bin	126000	0
 bin	128000	0
@@ -1436,831 +617,13 @@ bin	132000	0
 bin	134000	0
 bin	136000	0
 bin	138000	0
-statistic SensorNetworkShowcaseA33.sensor3.wlan[0].radio packetErrorRate:histogram
-field count 28043
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source packetErrorRate(packetSentToUpper)
-attr title "Packet error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28043
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-statistic SensorNetworkShowcaseA33.sensor3.wlan[0].radio bitErrorRate:histogram
-field count 28043
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source bitErrorRate(packetSentToUpper)
-attr title "Bit error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28043
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-statistic SensorNetworkShowcaseA33.sensor3.wlan[0].radio symbolErrorRate:histogram
-field count 28043
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source symbolErrorRate(packetSentToUpper)
-attr title "Symbol error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28043
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-scalar SensorNetworkShowcaseA33.sensor3.wlan[0].radio transmissionState:count 26864
-attr interpolationmode sample-hold
-attr source transmissionStateChanged
-attr title "Radio transmission state, count"
-scalar SensorNetworkShowcaseA33.sensor3.wlan[0].radio receptionState:count 145532
-attr interpolationmode sample-hold
-attr source receptionStateChanged
-attr title "Radio reception state, count"
-scalar SensorNetworkShowcaseA33.sensor3.wlan[0].radio radioMode:count 95056
-attr interpolationmode sample-hold
-attr source radioModeChanged
-attr title "Radio mode, count"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropAddressResolutionFailed:count 0
-attr interpolationmode none
-attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
-attr title "packet drop: address resolution failed, count"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
-attr title "packet drop: address resolution failed, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropHopLimitReached:count 0
-attr interpolationmode none
-attr source packetDropReasonIsHopLimitReached(packetDropped)
-attr title "packet drop: hop limit reached, count"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsHopLimitReached(packetDropped)
-attr title "packet drop: hop limit reached, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropForwardingDisabled:count 0
-attr interpolationmode none
-attr source packetDropReasonIsForwardingDisabled(packetDropped)
-attr title "packet drop: forwarding disabled, count"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsForwardingDisabled(packetDropped)
-attr title "packet drop: forwarding disabled, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropNoInterfaceFound:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoInterfaceFound(packetDropped)
-attr title "packet drop: no interface found, count"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNoInterfaceFound(packetDropped)
-attr title "packet drop: no interface found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropNoRouteFound:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoRouteFound(packetDropped)
-attr title "packet drop: no route found, count"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNoRouteFound(packetDropped)
-attr title "packet drop: no route found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropUndefined:count 0
-attr interpolationmode none
-attr source packetDropReasonIsUndefined(packetDropped)
-attr title "packet drop: undefined, count"
-scalar SensorNetworkShowcaseA33.sensor3.ipv4.ip packetDropUndefined:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsUndefined(packetDropped)
-attr title "packet drop: undefined, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.udp packetReceived:count 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.sensor3.udp packetReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.udp packetSent:count 2217
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.sensor3.udp packetSent:sum(packetBytes) 39906
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor3.udp passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed up, count"
-scalar SensorNetworkShowcaseA33.sensor3.udp droppedPkWrongPort:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoPortFound(packetDropped)
-attr title "packets dropped (wrong port), count"
-scalar SensorNetworkShowcaseA33.sensor3.udp droppedPkBadChecksum:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packets dropped (checksum error), count"
-scalar SensorNetworkShowcaseA33.sensor3.app[0] "packets sent" 2217
-scalar SensorNetworkShowcaseA33.sensor3.app[0] "packets received" 0
-scalar SensorNetworkShowcaseA33.sensor3.app[0] packetReceived:count 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.sensor3.app[0] packetReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.sensor3.app[0] rcvdPkLifetime:stats
-field count 0
-field mean nan
-field stddev nan
-field min nan
-field max nan
-field sum 0
-field sqrsum 0
-attr interpolationmode none
-attr source dataAge(packetReceived)
-attr title "received packet lifetime, stats"
-attr unit s
-scalar SensorNetworkShowcaseA33.sensor3.app[0] packetSent:count 2217
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.sensor3.app[0] packetSent:sum(packetBytes) 22170
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.energyStorage residualEnergyCapacity:last nan
-attr interpolationmode linear
-attr source residualEnergyCapacityChanged
-attr title "Residual energy capacity, last"
-scalar SensorNetworkShowcaseA33.sensor5.lo[0].lo rcvdPkFromHl:count 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packets received from higher layer, count"
-scalar SensorNetworkShowcaseA33.sensor5.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packets received from higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.lo[0].lo passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, count"
-scalar SensorNetworkShowcaseA33.sensor5.lo[0].lo passedUpPk:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.wlan[0].mac packetDropIncorrectlyReceived:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, count"
-scalar SensorNetworkShowcaseA33.sensor5.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.wlan[0].mac packetDropNotAddressedToUs:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, count"
-scalar SensorNetworkShowcaseA33.sensor5.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.sensor5.wlan[0].radio minSnir:histogram
-field count 28042
-field mean 22603.870622496
-field stddev 296356.43451267
-field min 106.96266601998
-field max 9072715.3788433
-field sum 633857739.99604
-field sqrsum 2.477088366693e+015
-attr source minimumSnir(packetSentToUpper)
-attr title "Min SNIR, histogram"
-bin	-inf	0
-bin	0	27757
-bin	160000	85
-bin	320000	38
-bin	480000	23
-bin	640000	16
-bin	800000	12
-bin	960000	9
-bin	1120000	7
-bin	1280000	7
-bin	1440000	5
-bin	1600000	5
-bin	1760000	4
-bin	1920000	4
-bin	2080000	3
-bin	2240000	3
-bin	2400000	3
-bin	2560000	2
-bin	2720000	3
-bin	2880000	2
-bin	3040000	2
-bin	3200000	2
-bin	3360000	2
-bin	3520000	1
-bin	3680000	2
-bin	3840000	2
-bin	4000000	2
-bin	4160000	1
-bin	4320000	1
-bin	4480000	2
-bin	4640000	1
-bin	4800000	1
-bin	4960000	2
-bin	5120000	0
-bin	5280000	2
-bin	5440000	1
-bin	5600000	1
-bin	5760000	1
-bin	5920000	1
-bin	6080000	1
-bin	6240000	1
-bin	6400000	2
-bin	6560000	0
-bin	6720000	2
-bin	6880000	0
-bin	7040000	2
-bin	7200000	0
-bin	7360000	2
-bin	7520000	0
-bin	7680000	2
-bin	7840000	1
-bin	8000000	1
-bin	8160000	2
-bin	8320000	1
-bin	8480000	1
-bin	8640000	2
-bin	8800000	2
-bin	8960000	5
-bin	9120000	0
-statistic SensorNetworkShowcaseA33.sensor5.wlan[0].radio packetErrorRate:histogram
-field count 28042
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source packetErrorRate(packetSentToUpper)
-attr title "Packet error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28042
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-statistic SensorNetworkShowcaseA33.sensor5.wlan[0].radio bitErrorRate:histogram
-field count 28042
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source bitErrorRate(packetSentToUpper)
-attr title "Bit error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28042
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-statistic SensorNetworkShowcaseA33.sensor5.wlan[0].radio symbolErrorRate:histogram
-field count 28042
-field mean 0
-field stddev 0
-field min 0
-field max 0
-field sum 0
-field sqrsum 0
-attr source symbolErrorRate(packetSentToUpper)
-attr title "Symbol error rate, histogram"
-bin	-inf	0
-bin	-0.5	0
-bin	-0.48	0
-bin	-0.46	0
-bin	-0.44	0
-bin	-0.42	0
-bin	-0.4	0
-bin	-0.38	0
-bin	-0.36	0
-bin	-0.34	0
-bin	-0.32	0
-bin	-0.3	0
-bin	-0.28	0
-bin	-0.26	0
-bin	-0.24	0
-bin	-0.22	0
-bin	-0.2	0
-bin	-0.18	0
-bin	-0.16	0
-bin	-0.14	0
-bin	-0.12	0
-bin	-0.1	0
-bin	-0.08	0
-bin	-0.06	0
-bin	-0.04	0
-bin	-0.02	0
-bin	0	28042
-bin	0.02	0
-bin	0.04	0
-bin	0.06	0
-bin	0.08	0
-bin	0.1	0
-bin	0.12	0
-bin	0.14	0
-bin	0.16	0
-bin	0.18	0
-bin	0.2	0
-bin	0.22	0
-bin	0.24	0
-bin	0.26	0
-bin	0.28	0
-bin	0.3	0
-bin	0.32	0
-bin	0.34	0
-bin	0.36	0
-bin	0.38	0
-bin	0.4	0
-bin	0.42	0
-bin	0.44	0
-bin	0.46	0
-bin	0.48	0
-bin	0.5	0
-scalar SensorNetworkShowcaseA33.sensor5.wlan[0].radio transmissionState:count 26868
-attr interpolationmode sample-hold
-attr source transmissionStateChanged
-attr title "Radio transmission state, count"
-scalar SensorNetworkShowcaseA33.sensor5.wlan[0].radio receptionState:count 145530
-attr interpolationmode sample-hold
-attr source receptionStateChanged
-attr title "Radio reception state, count"
-scalar SensorNetworkShowcaseA33.sensor5.wlan[0].radio radioMode:count 95057
-attr interpolationmode sample-hold
-attr source radioModeChanged
-attr title "Radio mode, count"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropAddressResolutionFailed:count 0
-attr interpolationmode none
-attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
-attr title "packet drop: address resolution failed, count"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
-attr title "packet drop: address resolution failed, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropHopLimitReached:count 0
-attr interpolationmode none
-attr source packetDropReasonIsHopLimitReached(packetDropped)
-attr title "packet drop: hop limit reached, count"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsHopLimitReached(packetDropped)
-attr title "packet drop: hop limit reached, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropForwardingDisabled:count 0
-attr interpolationmode none
-attr source packetDropReasonIsForwardingDisabled(packetDropped)
-attr title "packet drop: forwarding disabled, count"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsForwardingDisabled(packetDropped)
-attr title "packet drop: forwarding disabled, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropNoInterfaceFound:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoInterfaceFound(packetDropped)
-attr title "packet drop: no interface found, count"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNoInterfaceFound(packetDropped)
-attr title "packet drop: no interface found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropNoRouteFound:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoRouteFound(packetDropped)
-attr title "packet drop: no route found, count"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNoRouteFound(packetDropped)
-attr title "packet drop: no route found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropUndefined:count 0
-attr interpolationmode none
-attr source packetDropReasonIsUndefined(packetDropped)
-attr title "packet drop: undefined, count"
-scalar SensorNetworkShowcaseA33.sensor5.ipv4.ip packetDropUndefined:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsUndefined(packetDropped)
-attr title "packet drop: undefined, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.udp packetReceived:count 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.sensor5.udp packetReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.udp packetSent:count 2216
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.sensor5.udp packetSent:sum(packetBytes) 39888
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.sensor5.udp passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed up, count"
-scalar SensorNetworkShowcaseA33.sensor5.udp droppedPkWrongPort:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNoPortFound(packetDropped)
-attr title "packets dropped (wrong port), count"
-scalar SensorNetworkShowcaseA33.sensor5.udp droppedPkBadChecksum:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packets dropped (checksum error), count"
-scalar SensorNetworkShowcaseA33.sensor5.app[0] "packets sent" 2216
-scalar SensorNetworkShowcaseA33.sensor5.app[0] "packets received" 0
-scalar SensorNetworkShowcaseA33.sensor5.app[0] packetReceived:count 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.sensor5.app[0] packetReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceived
-attr title "packets received, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.sensor5.app[0] rcvdPkLifetime:stats
-field count 0
-field mean nan
-field stddev nan
-field min nan
-field max nan
-field sum 0
-field sqrsum 0
-attr interpolationmode none
-attr source dataAge(packetReceived)
-attr title "received packet lifetime, stats"
-attr unit s
-scalar SensorNetworkShowcaseA33.sensor5.app[0] packetSent:count 2216
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.sensor5.app[0] packetSent:sum(packetBytes) 22160
-attr interpolationmode none
-attr source packetSent
-attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.energyStorage residualEnergyCapacity:last -11.749225170528
-attr interpolationmode linear
-attr source residualEnergyCapacityChanged
-attr title "Residual energy capacity, last"
-scalar SensorNetworkShowcaseA33.CH.lo[0].lo rcvdPkFromHl:count 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packets received from higher layer, count"
-scalar SensorNetworkShowcaseA33.CH.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packets received from higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.lo[0].lo passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, count"
-scalar SensorNetworkShowcaseA33.CH.lo[0].lo passedUpPk:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.wlan[0].mac packetDropIncorrectlyReceived:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, count"
-scalar SensorNetworkShowcaseA33.CH.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.wlan[0].mac packetDropNotAddressedToUs:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, count"
-scalar SensorNetworkShowcaseA33.CH.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.CH.wlan[0].radio minSnir:histogram
-field count 39119
-field mean 104135.20030205
-field stddev 84728.335930068
-field min 111.8707819768
-field max 256380.11084625
-field sum 4073664900.6157
-field sqrsum 7.0503576498601e+014
-attr source minimumSnir(packetSentToUpper)
-attr title "Min SNIR, histogram"
-bin	-inf	0
-bin	0	6513
-bin	5000	349
-bin	10000	159
-bin	15000	98
-bin	20000	69
-bin	25000	53
-bin	30000	43
-bin	35000	37
-bin	40000	32
-bin	45000	29
-bin	50000	7850
-bin	55000	25
-bin	60000	24
-bin	65000	22
-bin	70000	110
-bin	75000	50
-bin	80000	63
-bin	85000	123
-bin	90000	7824
-bin	95000	0
-bin	100000	0
-bin	105000	0
-bin	110000	7824
-bin	115000	0
-bin	120000	0
-bin	125000	0
-bin	130000	0
-bin	135000	0
 bin	140000	0
-bin	145000	0
-bin	150000	0
-bin	155000	0
-bin	160000	0
-bin	165000	0
-bin	170000	0
-bin	175000	0
-bin	180000	0
-bin	185000	0
-bin	190000	0
-bin	195000	0
-bin	200000	0
-bin	205000	0
-bin	210000	0
-bin	215000	0
-bin	220000	0
-bin	225000	0
-bin	230000	0
-bin	235000	0
-bin	240000	0
-bin	245000	0
-bin	250000	0
-bin	255000	7822
-bin	260000	0
-bin	265000	0
-bin	270000	0
-bin	275000	0
-bin	280000	0
-bin	285000	0
-bin	290000	0
-bin	295000	0
-bin	300000	0
-bin	305000	0
-bin	310000	0
-statistic SensorNetworkShowcaseA33.CH.wlan[0].radio packetErrorRate:histogram
-field count 39119
+bin	142000	0
+bin	144000	0
+bin	146000	0
+bin	148000	0
+statistic SensorNetworkShowcaseB.sensor1.wlan[0].radio packetErrorRate:histogram
+field count 5
 field mean 0
 field stddev 0
 field min 0
@@ -2295,7 +658,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	39119
+bin	0	5
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -2321,8 +684,8 @@ bin	0.44	0
 bin	0.46	0
 bin	0.48	0
 bin	0.5	0
-statistic SensorNetworkShowcaseA33.CH.wlan[0].radio bitErrorRate:histogram
-field count 39119
+statistic SensorNetworkShowcaseB.sensor1.wlan[0].radio bitErrorRate:histogram
+field count 5
 field mean 0
 field stddev 0
 field min 0
@@ -2357,7 +720,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	39119
+bin	0	5
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -2383,8 +746,8 @@ bin	0.44	0
 bin	0.46	0
 bin	0.48	0
 bin	0.5	0
-statistic SensorNetworkShowcaseA33.CH.wlan[0].radio symbolErrorRate:histogram
-field count 39119
+statistic SensorNetworkShowcaseB.sensor1.wlan[0].radio symbolErrorRate:histogram
+field count 5
 field mean 0
 field stddev 0
 field min 0
@@ -2419,7 +782,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	39119
+bin	0	5
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -2445,455 +808,1625 @@ bin	0.44	0
 bin	0.46	0
 bin	0.48	0
 bin	0.5	0
-scalar SensorNetworkShowcaseA33.CH.wlan[0].radio transmissionState:count 22436
+scalar SensorNetworkShowcaseB.sensor1.wlan[0].radio transmissionState:count 4
 attr interpolationmode sample-hold
 attr source transmissionStateChanged
 attr title "Radio transmission state, count"
-scalar SensorNetworkShowcaseA33.CH.wlan[0].radio receptionState:count 167684
+scalar SensorNetworkShowcaseB.sensor1.wlan[0].radio receptionState:count 23
 attr interpolationmode sample-hold
 attr source receptionStateChanged
 attr title "Radio reception state, count"
-scalar SensorNetworkShowcaseA33.CH.wlan[0].radio radioMode:count 95057
+scalar SensorNetworkShowcaseB.sensor1.wlan[0].radio radioMode:count 16
 attr interpolationmode sample-hold
 attr source radioModeChanged
 attr title "Radio mode, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac "simulated time" 2216.1686149571
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac full-duplex 1
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac "frames/sec sent" 4.9982658924237
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac "frames/sec rcvd" 0
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac "bits/sec sent" 2559.1121369209
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac "bits/sec rcvd" 0
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac "rx channel idle (%)" 100
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac "rx channel utilization (%)" 0
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac txPk:count 11077
-attr interpolationmode none
-attr source packetSentToLower
-attr title "packets transmitted, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac txPk:sum(packetBytes) 708928
-attr interpolationmode none
-attr source packetSentToLower
-attr title "packets transmitted, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac packetReceivedFromUpper:count 11077
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packet bytes from higher layer, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 708928
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac passedUpPk:count 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac passedUpPk:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac packetDropIncorrectlyReceived:count 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac packetDropInterfaceDown:count 0
-attr interpolationmode none
-attr source packetDropReasonIsInterfaceDown(packetDropped)
-attr title "packet drop: interface down, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac packetDropInterfaceDown:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsInterfaceDown(packetDropped)
-attr title "packet drop: interface down, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac packetDropNotAddressedToUs:count 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac rxPausePkUnits:count 0
-attr interpolationmode none
-attr title "pause units received, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac rxPausePkUnits:sum 0
-attr interpolationmode none
-attr title "pause units received, sum"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac txPausePkUnits:count 0
-attr interpolationmode none
-attr title "pause units sent, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac txPausePkUnits:sum 0
-attr interpolationmode none
-attr title "pause units sent, sum"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac rxPkOk:count 0
-attr interpolationmode none
-attr source rxPkOk
-attr title "packets received OK, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].mac rxPkOk:sum(packetBytes) 0
-attr interpolationmode none
-attr source rxPkOk
-attr title "packets received OK, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.eth[0].encap pauseSent:count 0
-attr title "pause sent, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].encap pauseSent:sum 0
-attr title "pause sent, sum"
-scalar SensorNetworkShowcaseA33.CH.eth[0].encap decapPk:count 0
-attr interpolationmode none
-attr source decapPk
-attr title "packets decapsulated, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].encap decapPk:sum(packetBytes) 0
-attr interpolationmode none
-attr source decapPk
-attr title "packets decapsulated, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.eth[0].encap encapPk:count 11077
-attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, count"
-scalar SensorNetworkShowcaseA33.CH.eth[0].encap encapPk:sum(packetBytes) 420926
-attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropAddressResolutionFailed:count 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropAddressResolutionFailed:count 0
 attr interpolationmode none
 attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
 attr title "packet drop: address resolution failed, count"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
 attr title "packet drop: address resolution failed, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropHopLimitReached:count 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropHopLimitReached:count 0
 attr interpolationmode none
 attr source packetDropReasonIsHopLimitReached(packetDropped)
 attr title "packet drop: hop limit reached, count"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsHopLimitReached(packetDropped)
 attr title "packet drop: hop limit reached, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropForwardingDisabled:count 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropForwardingDisabled:count 0
 attr interpolationmode none
 attr source packetDropReasonIsForwardingDisabled(packetDropped)
 attr title "packet drop: forwarding disabled, count"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsForwardingDisabled(packetDropped)
 attr title "packet drop: forwarding disabled, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropNoInterfaceFound:count 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropNoInterfaceFound:count 0
 attr interpolationmode none
 attr source packetDropReasonIsNoInterfaceFound(packetDropped)
 attr title "packet drop: no interface found, count"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsNoInterfaceFound(packetDropped)
 attr title "packet drop: no interface found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropNoRouteFound:count 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropNoRouteFound:count 0
 attr interpolationmode none
 attr source packetDropReasonIsNoRouteFound(packetDropped)
 attr title "packet drop: no route found, count"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsNoRouteFound(packetDropped)
 attr title "packet drop: no route found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropUndefined:count 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropUndefined:count 0
 attr interpolationmode none
 attr source packetDropReasonIsUndefined(packetDropped)
 attr title "packet drop: undefined, count"
-scalar SensorNetworkShowcaseA33.CH.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor1.ipv4.ip packetDropUndefined:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsUndefined(packetDropped)
 attr title "packet drop: undefined, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.udp packetReceived:count 0
+scalar SensorNetworkShowcaseB.sensor1.udp packetReceived:count 0
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.CH.udp packetReceived:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor1.udp packetReceived:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.udp packetSent:count 0
+scalar SensorNetworkShowcaseB.sensor1.udp packetSent:count 0
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.CH.udp packetSent:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor1.udp packetSent:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.CH.udp passedUpPk:count 0
+scalar SensorNetworkShowcaseB.sensor1.udp passedUpPk:count 0
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed up, count"
-scalar SensorNetworkShowcaseA33.CH.udp droppedPkWrongPort:count 0
+scalar SensorNetworkShowcaseB.sensor1.udp droppedPkWrongPort:count 0
 attr interpolationmode none
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
-scalar SensorNetworkShowcaseA33.CH.udp droppedPkBadChecksum:count 0
+scalar SensorNetworkShowcaseB.sensor1.udp droppedPkBadChecksum:count 0
 attr interpolationmode none
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
-scalar SensorNetworkShowcaseA33.controller.lo[0].lo rcvdPkFromHl:count 0
+scalar SensorNetworkShowcaseB.sensor1.app[0] "packets sent" 0
+scalar SensorNetworkShowcaseB.sensor1.app[0] "packets received" 0
+scalar SensorNetworkShowcaseB.sensor1.app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SensorNetworkShowcaseB.sensor1.app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic SensorNetworkShowcaseB.sensor1.app[0] rcvdPkLifetime:stats
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, stats"
+attr unit s
+scalar SensorNetworkShowcaseB.sensor1.app[0] packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SensorNetworkShowcaseB.sensor1.app[0] packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor2.energyStorage residualEnergyCapacity:last -0.00043883629115594
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, last"
+scalar SensorNetworkShowcaseB.sensor2.lo[0].lo rcvdPkFromHl:count 0
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, count"
-scalar SensorNetworkShowcaseA33.controller.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.lo[0].lo passedUpPk:count 0
+scalar SensorNetworkShowcaseB.sensor2.lo[0].lo passedUpPk:count 0
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar SensorNetworkShowcaseA33.controller.lo[0].lo passedUpPk:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.lo[0].lo passedUpPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac "simulated time" 2216.1686149571
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac full-duplex 1
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac "frames/sec sent" 0
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac "frames/sec rcvd" 4.9982658924237
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac "bits/sec sent" 0
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac "bits/sec rcvd" 2559.1121369209
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac "rx channel idle (%)" 100
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac "rx channel utilization (%)" 0
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac txPk:count 0
-attr interpolationmode none
-attr source packetSentToLower
-attr title "packets transmitted, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac txPk:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetSentToLower
-attr title "packets transmitted, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac packetReceivedFromUpper:count 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packet bytes from higher layer, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac passedUpPk:count 11077
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac passedUpPk:sum(packetBytes) 708928
-attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac packetDropIncorrectlyReceived:count 0
+scalar SensorNetworkShowcaseB.sensor2.wlan[0].mac packetDropIncorrectlyReceived:count 0
 attr interpolationmode none
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac packetDropInterfaceDown:count 0
-attr interpolationmode none
-attr source packetDropReasonIsInterfaceDown(packetDropped)
-attr title "packet drop: interface down, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac packetDropInterfaceDown:sum(packetBytes) 0
-attr interpolationmode none
-attr source packetDropReasonIsInterfaceDown(packetDropped)
-attr title "packet drop: interface down, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac packetDropNotAddressedToUs:count 0
+scalar SensorNetworkShowcaseB.sensor2.wlan[0].mac packetDropNotAddressedToUs:count 0
 attr interpolationmode none
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac rxPausePkUnits:count 0
-attr interpolationmode none
-attr title "pause units received, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac rxPausePkUnits:sum 0
-attr interpolationmode none
-attr title "pause units received, sum"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac txPausePkUnits:count 0
-attr interpolationmode none
-attr title "pause units sent, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac txPausePkUnits:sum 0
-attr interpolationmode none
-attr title "pause units sent, sum"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac rxPkOk:count 11077
-attr interpolationmode none
-attr source rxPkOk
-attr title "packets received OK, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].mac rxPkOk:sum(packetBytes) 708928
-attr interpolationmode none
-attr source rxPkOk
-attr title "packets received OK, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.eth[0].encap pauseSent:count 0
-attr title "pause sent, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].encap pauseSent:sum 0
-attr title "pause sent, sum"
-scalar SensorNetworkShowcaseA33.controller.eth[0].encap decapPk:count 11077
-attr interpolationmode none
-attr source decapPk
-attr title "packets decapsulated, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].encap decapPk:sum(packetBytes) 509542
-attr interpolationmode none
-attr source decapPk
-attr title "packets decapsulated, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.eth[0].encap encapPk:count 0
-attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, count"
-scalar SensorNetworkShowcaseA33.controller.eth[0].encap encapPk:sum(packetBytes) 0
-attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropAddressResolutionFailed:count 0
+statistic SensorNetworkShowcaseB.sensor2.wlan[0].radio minSnir:histogram
+field count 5
+field mean 67003.345862959
+field stddev 37772.829206094
+field min 29803.870712685
+field max 107017.01241276
+field sum 335016.72931479
+field sqrsum 28154388289.088
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	10000	0
+bin	12000	0
+bin	14000	0
+bin	16000	0
+bin	18000	0
+bin	20000	0
+bin	22000	0
+bin	24000	0
+bin	26000	0
+bin	28000	1
+bin	30000	0
+bin	32000	0
+bin	34000	1
+bin	36000	0
+bin	38000	0
+bin	40000	0
+bin	42000	0
+bin	44000	0
+bin	46000	0
+bin	48000	0
+bin	50000	0
+bin	52000	0
+bin	54000	1
+bin	56000	0
+bin	58000	0
+bin	60000	0
+bin	62000	0
+bin	64000	0
+bin	66000	0
+bin	68000	0
+bin	70000	0
+bin	72000	0
+bin	74000	0
+bin	76000	0
+bin	78000	0
+bin	80000	0
+bin	82000	0
+bin	84000	0
+bin	86000	0
+bin	88000	0
+bin	90000	0
+bin	92000	0
+bin	94000	0
+bin	96000	0
+bin	98000	0
+bin	100000	0
+bin	102000	0
+bin	104000	0
+bin	106000	2
+bin	108000	0
+bin	110000	0
+bin	112000	0
+bin	114000	0
+bin	116000	0
+bin	118000	0
+bin	120000	0
+bin	122000	0
+bin	124000	0
+bin	126000	0
+bin	128000	0
+statistic SensorNetworkShowcaseB.sensor2.wlan[0].radio packetErrorRate:histogram
+field count 5
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	5
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SensorNetworkShowcaseB.sensor2.wlan[0].radio bitErrorRate:histogram
+field count 5
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	5
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SensorNetworkShowcaseB.sensor2.wlan[0].radio symbolErrorRate:histogram
+field count 5
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	5
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar SensorNetworkShowcaseB.sensor2.wlan[0].radio transmissionState:count 4
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar SensorNetworkShowcaseB.sensor2.wlan[0].radio receptionState:count 23
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SensorNetworkShowcaseB.sensor2.wlan[0].radio radioMode:count 16
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropAddressResolutionFailed:count 0
 attr interpolationmode none
 attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
 attr title "packet drop: address resolution failed, count"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
 attr title "packet drop: address resolution failed, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropHopLimitReached:count 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropHopLimitReached:count 0
 attr interpolationmode none
 attr source packetDropReasonIsHopLimitReached(packetDropped)
 attr title "packet drop: hop limit reached, count"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsHopLimitReached(packetDropped)
 attr title "packet drop: hop limit reached, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropForwardingDisabled:count 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropForwardingDisabled:count 0
 attr interpolationmode none
 attr source packetDropReasonIsForwardingDisabled(packetDropped)
 attr title "packet drop: forwarding disabled, count"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsForwardingDisabled(packetDropped)
 attr title "packet drop: forwarding disabled, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropNoInterfaceFound:count 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropNoInterfaceFound:count 0
 attr interpolationmode none
 attr source packetDropReasonIsNoInterfaceFound(packetDropped)
 attr title "packet drop: no interface found, count"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsNoInterfaceFound(packetDropped)
 attr title "packet drop: no interface found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropNoRouteFound:count 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropNoRouteFound:count 0
 attr interpolationmode none
 attr source packetDropReasonIsNoRouteFound(packetDropped)
 attr title "packet drop: no route found, count"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsNoRouteFound(packetDropped)
 attr title "packet drop: no route found, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropUndefined:count 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropUndefined:count 0
 attr interpolationmode none
 attr source packetDropReasonIsUndefined(packetDropped)
 attr title "packet drop: undefined, count"
-scalar SensorNetworkShowcaseA33.controller.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.ipv4.ip packetDropUndefined:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetDropReasonIsUndefined(packetDropped)
 attr title "packet drop: undefined, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.udp packetReceived:count 11076
+scalar SensorNetworkShowcaseB.sensor2.udp packetReceived:count 0
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.controller.udp packetReceived:sum(packetBytes) 199368
+scalar SensorNetworkShowcaseB.sensor2.udp packetReceived:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.udp packetSent:count 0
+scalar SensorNetworkShowcaseB.sensor2.udp packetSent:count 0
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, count"
-scalar SensorNetworkShowcaseA33.controller.udp packetSent:sum(packetBytes) 0
+scalar SensorNetworkShowcaseB.sensor2.udp packetSent:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
-scalar SensorNetworkShowcaseA33.controller.udp passedUpPk:count 11076
+scalar SensorNetworkShowcaseB.sensor2.udp passedUpPk:count 0
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed up, count"
-scalar SensorNetworkShowcaseA33.controller.udp droppedPkWrongPort:count 0
+scalar SensorNetworkShowcaseB.sensor2.udp droppedPkWrongPort:count 0
 attr interpolationmode none
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
-scalar SensorNetworkShowcaseA33.controller.udp droppedPkBadChecksum:count 0
+scalar SensorNetworkShowcaseB.sensor2.udp droppedPkBadChecksum:count 0
 attr interpolationmode none
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
-scalar SensorNetworkShowcaseA33.controller.app[0] packetReceived:count 11076
+scalar SensorNetworkShowcaseB.sensor2.app[0] "packets sent" 0
+scalar SensorNetworkShowcaseB.sensor2.app[0] "packets received" 0
+scalar SensorNetworkShowcaseB.sensor2.app[0] packetReceived:count 0
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar SensorNetworkShowcaseA33.controller.app[0] packetReceived:sum(packetBytes) 110760
+scalar SensorNetworkShowcaseB.sensor2.app[0] packetReceived:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
-statistic SensorNetworkShowcaseA33.controller.app[0] endToEndDelay:histogram
-field count 11076
-field mean 0.22389759331252
-field stddev 0.11329203312752
-field min 0.060055225653
-field max 2.260412654271
-field sum 2479.8897435295
-field sqrsum 697.38990908623
+statistic SensorNetworkShowcaseB.sensor2.app[0] rcvdPkLifetime:stats
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
 attr interpolationmode none
 attr source dataAge(packetReceived)
-attr title "end-to-end delay, histogram"
+attr title "received packet lifetime, stats"
 attr unit s
+scalar SensorNetworkShowcaseB.sensor2.app[0] packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SensorNetworkShowcaseB.sensor2.app[0] packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.energyStorage residualEnergyCapacity:last -0.00043883629110064
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, last"
+scalar SensorNetworkShowcaseB.sensor3.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SensorNetworkShowcaseB.sensor3.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SensorNetworkShowcaseB.sensor3.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SensorNetworkShowcaseB.sensor3.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SensorNetworkShowcaseB.sensor3.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+statistic SensorNetworkShowcaseB.sensor3.wlan[0].radio minSnir:histogram
+field count 5
+field mean 72835.692537216
+field stddev 37091.394418913
+field min 30884.707383341
+field max 105753.65087892
+field sum 364178.46268608
+field sqrsum 32028276696.637
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
 bin	-inf	0
-bin	0	0
-bin	0.05	1106
-bin	0.1	3320
-bin	0.15	1106
+bin	12000	0
+bin	14000	0
+bin	16000	0
+bin	18000	0
+bin	20000	0
+bin	22000	0
+bin	24000	0
+bin	26000	0
+bin	28000	0
+bin	30000	1
+bin	32000	0
+bin	34000	1
+bin	36000	0
+bin	38000	0
+bin	40000	0
+bin	42000	0
+bin	44000	0
+bin	46000	0
+bin	48000	0
+bin	50000	0
+bin	52000	0
+bin	54000	0
+bin	56000	0
+bin	58000	0
+bin	60000	0
+bin	62000	0
+bin	64000	0
+bin	66000	0
+bin	68000	0
+bin	70000	0
+bin	72000	0
+bin	74000	0
+bin	76000	0
+bin	78000	0
+bin	80000	0
+bin	82000	0
+bin	84000	0
+bin	86000	1
+bin	88000	0
+bin	90000	0
+bin	92000	0
+bin	94000	0
+bin	96000	0
+bin	98000	0
+bin	100000	0
+bin	102000	0
+bin	104000	2
+bin	106000	0
+bin	108000	0
+bin	110000	0
+bin	112000	0
+bin	114000	0
+bin	116000	0
+bin	118000	0
+bin	120000	0
+bin	122000	0
+bin	124000	0
+bin	126000	0
+statistic SensorNetworkShowcaseB.sensor3.wlan[0].radio packetErrorRate:histogram
+field count 5
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	5
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
 bin	0.2	0
-bin	0.25	1106
-bin	0.3	3321
-bin	0.35	1107
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
 bin	0.4	0
-bin	0.45	1
-bin	0.5	1
-bin	0.55	1
-bin	0.6	0
-bin	0.65	0
-bin	0.7	0
-bin	0.75	0
-bin	0.8	0
-bin	0.85	0
-bin	0.9	0
-bin	0.95	0
-bin	1	0
-bin	1.05	1
-bin	1.1	1
-bin	1.15	1
-bin	1.2	0
-bin	1.25	0
-bin	1.3	0
-bin	1.35	0
-bin	1.4	0
-bin	1.45	0
-bin	1.5	0
-bin	1.55	0
-bin	1.6	0
-bin	1.65	1
-bin	1.7	1
-bin	1.75	1
-bin	1.8	0
-bin	1.85	0
-bin	1.9	0
-bin	1.95	0
-bin	2	0
-bin	2.05	0
-bin	2.1	0
-bin	2.15	0
-bin	2.2	0
-bin	2.25	1
-bin	2.3	0
-bin	2.35	0
-bin	2.4	0
-bin	2.45	0
-bin	2.5	0
-bin	2.55	0
-bin	2.6	0
-bin	2.65	0
-bin	2.7	0
-bin	2.75	0
-bin	2.8	0
-bin	2.85	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SensorNetworkShowcaseB.sensor3.wlan[0].radio bitErrorRate:histogram
+field count 5
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	5
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SensorNetworkShowcaseB.sensor3.wlan[0].radio symbolErrorRate:histogram
+field count 5
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	5
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar SensorNetworkShowcaseB.sensor3.wlan[0].radio transmissionState:count 4
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar SensorNetworkShowcaseB.sensor3.wlan[0].radio receptionState:count 23
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SensorNetworkShowcaseB.sensor3.wlan[0].radio radioMode:count 16
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SensorNetworkShowcaseB.sensor3.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SensorNetworkShowcaseB.sensor3.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SensorNetworkShowcaseB.sensor3.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.sensor3.udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SensorNetworkShowcaseB.sensor3.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SensorNetworkShowcaseB.sensor3.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar SensorNetworkShowcaseB.sensor3.app[0] "packets sent" 0
+scalar SensorNetworkShowcaseB.sensor3.app[0] "packets received" 0
+scalar SensorNetworkShowcaseB.sensor3.app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SensorNetworkShowcaseB.sensor3.app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic SensorNetworkShowcaseB.sensor3.app[0] rcvdPkLifetime:stats
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, stats"
+attr unit s
+scalar SensorNetworkShowcaseB.sensor3.app[0] packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SensorNetworkShowcaseB.sensor3.app[0] packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.energyStorage residualEnergyCapacity:last -0.00047258629055841
+attr interpolationmode linear
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity, last"
+scalar SensorNetworkShowcaseB.gateway.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SensorNetworkShowcaseB.gateway.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SensorNetworkShowcaseB.gateway.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SensorNetworkShowcaseB.gateway.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SensorNetworkShowcaseB.gateway.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+statistic SensorNetworkShowcaseB.gateway.wlan[0].radio minSnir:histogram
+field count 4
+field mean 116946.69737493
+field stddev 12541.445577798
+field min 105753.65087892
+field max 131036.21744486
+field sum 467786.78949974
+field sqrsum 55177983679.161
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	99000	0
+bin	99500	0
+bin	100000	0
+bin	100500	0
+bin	101000	0
+bin	101500	0
+bin	102000	0
+bin	102500	0
+bin	103000	0
+bin	103500	0
+bin	104000	0
+bin	104500	0
+bin	105000	0
+bin	105500	1
+bin	106000	0
+bin	106500	0
+bin	107000	1
+bin	107500	0
+bin	108000	0
+bin	108500	0
+bin	109000	0
+bin	109500	0
+bin	110000	0
+bin	110500	0
+bin	111000	0
+bin	111500	0
+bin	112000	0
+bin	112500	0
+bin	113000	0
+bin	113500	0
+bin	114000	0
+bin	114500	0
+bin	115000	0
+bin	115500	0
+bin	116000	0
+bin	116500	0
+bin	117000	0
+bin	117500	0
+bin	118000	0
+bin	118500	0
+bin	119000	0
+bin	119500	0
+bin	120000	0
+bin	120500	0
+bin	121000	0
+bin	121500	0
+bin	122000	0
+bin	122500	0
+bin	123000	0
+bin	123500	1
+bin	124000	0
+bin	124500	0
+bin	125000	0
+bin	125500	0
+bin	126000	0
+bin	126500	0
+bin	127000	0
+bin	127500	0
+bin	128000	0
+bin	128500	0
+bin	129000	0
+bin	129500	0
+bin	130000	0
+bin	130500	0
+bin	131000	1
+bin	131500	0
+bin	132000	0
+bin	132500	0
+bin	133000	0
+bin	133500	0
+bin	134000	0
+bin	134500	0
+bin	135000	0
+bin	135500	0
+bin	136000	0
+bin	136500	0
+bin	137000	0
+bin	137500	0
+statistic SensorNetworkShowcaseB.gateway.wlan[0].radio packetErrorRate:histogram
+field count 4
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	4
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SensorNetworkShowcaseB.gateway.wlan[0].radio bitErrorRate:histogram
+field count 4
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	4
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SensorNetworkShowcaseB.gateway.wlan[0].radio symbolErrorRate:histogram
+field count 4
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	4
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar SensorNetworkShowcaseB.gateway.wlan[0].radio transmissionState:count 8
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+scalar SensorNetworkShowcaseB.gateway.wlan[0].radio receptionState:count 21
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SensorNetworkShowcaseB.gateway.wlan[0].radio radioMode:count 17
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac "simulated time" 0.04333333333
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac full-duplex 1
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac "frames/sec sent" 0
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac "frames/sec rcvd" 0
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac "bits/sec sent" 0
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac "bits/sec rcvd" 0
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac "rx channel idle (%)" 100
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac "rx channel utilization (%)" 0
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac txPk:count 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac txPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac packetReceivedFromUpper:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac rxPkOk:count 0
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].mac rxPkOk:sum(packetBytes) 0
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar SensorNetworkShowcaseB.gateway.eth[0].encap decapPk:count 0
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].encap decapPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.eth[0].encap encapPk:count 0
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar SensorNetworkShowcaseB.gateway.eth[0].encap encapPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SensorNetworkShowcaseB.gateway.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SensorNetworkShowcaseB.gateway.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SensorNetworkShowcaseB.gateway.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.gateway.udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SensorNetworkShowcaseB.gateway.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SensorNetworkShowcaseB.gateway.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar SensorNetworkShowcaseB.server.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SensorNetworkShowcaseB.server.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SensorNetworkShowcaseB.server.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.eth[0].mac "simulated time" 0.04333333333
+scalar SensorNetworkShowcaseB.server.eth[0].mac full-duplex 1
+scalar SensorNetworkShowcaseB.server.eth[0].mac "frames/sec sent" 0
+scalar SensorNetworkShowcaseB.server.eth[0].mac "frames/sec rcvd" 0
+scalar SensorNetworkShowcaseB.server.eth[0].mac "bits/sec sent" 0
+scalar SensorNetworkShowcaseB.server.eth[0].mac "bits/sec rcvd" 0
+scalar SensorNetworkShowcaseB.server.eth[0].mac "rx channel idle (%)" 100
+scalar SensorNetworkShowcaseB.server.eth[0].mac "rx channel utilization (%)" 0
+scalar SensorNetworkShowcaseB.server.eth[0].mac txPk:count 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar SensorNetworkShowcaseB.server.eth[0].mac txPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.eth[0].mac packetReceivedFromUpper:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, count"
+scalar SensorNetworkShowcaseB.server.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.eth[0].mac passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SensorNetworkShowcaseB.server.eth[0].mac passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.eth[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SensorNetworkShowcaseB.server.eth[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.eth[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar SensorNetworkShowcaseB.server.eth[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.eth[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SensorNetworkShowcaseB.server.eth[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar SensorNetworkShowcaseB.server.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar SensorNetworkShowcaseB.server.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar SensorNetworkShowcaseB.server.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar SensorNetworkShowcaseB.server.eth[0].mac rxPkOk:count 0
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar SensorNetworkShowcaseB.server.eth[0].mac rxPkOk:sum(packetBytes) 0
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar SensorNetworkShowcaseB.server.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar SensorNetworkShowcaseB.server.eth[0].encap decapPk:count 0
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar SensorNetworkShowcaseB.server.eth[0].encap decapPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.eth[0].encap encapPk:count 0
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar SensorNetworkShowcaseB.server.eth[0].encap encapPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SensorNetworkShowcaseB.server.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SensorNetworkShowcaseB.server.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SensorNetworkShowcaseB.server.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SensorNetworkShowcaseB.server.udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SensorNetworkShowcaseB.server.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SensorNetworkShowcaseB.server.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
 
